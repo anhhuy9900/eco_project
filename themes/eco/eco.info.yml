@@ -1,0 +1,28 @@
+name: Eco Theme
+type: theme
+description: 'Eco Theme'
+package: Alpha
+# version: VERSION
+# core: 8.x
+
+libraries:
+  - eeo/global
+  #- Eco_theme/products
+
+libraries-override:
+
+regions:
+  header: Header
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  breadcrumb: 'Breadcrumb'
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  fEcoter: FEcoter
+
+# Information added by Drupal.org packaging script on 2016-02-01
+version: '8.x-1.0'
+core: '8.x'
+project: 'Eco_theme'
+datestamp: 1454362743

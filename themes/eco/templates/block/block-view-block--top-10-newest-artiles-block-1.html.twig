@@ -1,0 +1,14 @@
+
+{% extends "@templates/block.html.twig" %}
+{#
+/**
+ * @file
+ * Theme override for local actions (primary admin actions.)
+ */
+#}
+{% block content %}
+    {% if content %}
+        <h2>top 10 articles</h2>
+        {{ content }}
+    {% endif %}
+{% endblock %}

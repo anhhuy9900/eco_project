@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Preprocess functions for OO Theme.
+*/
+
+use Drupal\Component\Utility\Xss;
+use Drupal\Core\Template\Attribute;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\node\Entity\Node;
+use Drupal\views\Views;
+
+/**
+* Implements hook_preprocess_HOOK() for menu.html.twig.
+*/
+function eco_preprocess_menu(&$variables) {
+  // If there is not an existing class array, create an empty array.
+  if (!isset($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = [];
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for HTML document templates.
+ *
+ * Adds body classes if certain regions have content.
+ */
+function eco_preprocess_html(&$variables) {
+
+}
+/**
+ * Implements hook_css_alter() to alter CSS files before they are output on the page.
+ *
+ * @param $css
+ *   An array of all CSS items (files and inline CSS) being requested on the page.
+ * @param \Drupal\Core\Asset\AttachedAssetsInterface $assets
+ *   The assets attached to the current response.
+ *
+ * @see Drupal\Core\Asset\LibraryResolverInterface::getCssAssets()
+ */
+function eco_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+
+}
+
+/**
+ * Implements hook_js_alter() to perform necessary alterations to the JavaScript before it is presented on
+ * the page.
+ *
+ * @param $javascript
+ *   An array of all JavaScript being presented on the page.
+ * @param \Drupal\Core\Asset\AttachedAssetsInterface $assets
+ *   The assets attached to the current response.
+ *
+ * @see drupal_js_defaults()
+ * @see \Drupal\Core\Asset\AssetResolver
+ */
+function eco_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
+
+}
