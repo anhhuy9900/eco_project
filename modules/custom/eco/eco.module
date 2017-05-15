@@ -1,0 +1,70 @@
+<?php
+
+/**
+ * @file
+ * Eco module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Render\Markup;
+
+define('AP_API_ERR_MSG_400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).');
+define('AP_API_ERR_MSG_401', 'The request has not been applied because it lacks valid authentication credentials for the target resource.');
+define('AP_API_ERR_MSG_403', 'The server understood the request but refuses to authorize it.');
+define('AP_API_ERR_MSG_404', 'The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.');
+define('AP_API_ERR_MSG_500', 'The server encountered an unexpected condition that prevented it from fulfilling the request.');
+define('CAMPAIGN_COOKIE_NAME', 'nestle_gerber_2017');
+
+/**
+ * Implements hook_theme().
+ */
+function eco_theme($existing, $type, $theme, $path) {
+
+    $themes = [];
+    $themes['home_page'] = [
+        'render element' => 'build',
+        'template' => 'layout/home-page',
+    ];
+
+    return $themes;
+}
+
+/**
+ * Implements hook_mail().
+ */
+function eco_mail($key, &$message, $params) {
+}
+
+
+
+/**
+ * Implements hook_entity_update().
+ */
+function eco_entity_update(EntityInterface $entity) {
+
+
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function eco_entity_delete(EntityInterface $entity) {
+
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function eco_page_attachments_alter(array &$attachments) {
+
+    foreach ($attachments['#attached']['html_head'] as $key => $attachment) {
+        if (isset($attachment[1]) && $attachment[1] == 'system_meta_generator') {
+            unset($attachments['#attached']['html_head'][$key]);
+        }
+    }
+}

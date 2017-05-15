@@ -1,0 +1,6 @@
+name: Eco Module
+type: module
+description: "Eco module"
+package: Custom Module
+version: '8.0.0'
+core: '8.x'
