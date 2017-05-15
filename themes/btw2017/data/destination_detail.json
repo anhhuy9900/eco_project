@@ -1,0 +1,109 @@
+{
+  "nav": {
+    "root": "Destination",
+    "url": "destination.html",
+    "text": "Melbourne"
+  },
+  "tabs": [
+    {
+      "classes": "icon-tab-see",
+      "text": "see",
+      "url": "destination-detail.html",
+      "active": true
+    },
+    {
+      "classes": "icon-tab-taste",
+      "text": "taste",
+      "url": "destination-detail.html",
+      "active": false
+    },
+    {
+      "classes": "icon-tab-do",
+      "text": "do",
+      "url": "destination-detail.html",
+      "active": false
+    },
+    {
+      "classes": "icon-tab-all",
+      "text": "all",
+      "url": "destination-detail-all.html",
+      "active": false
+    }
+  ],
+  "heading": "Ullamcorper Pharetra Euismod Lorem",
+  "desc": "A variety of gateway to nullam quis risus eget urna mollis ornare vel eu leo etiam porta sem malesuada lorem ipsum magna mollis euismod.",
+  "see": [
+    {
+      "id": "marker-1",
+      "position": {
+        "lng": 106.698602,
+        "lat": 10.782078
+      },
+      "active": true,
+      "icon": "{{root}}images/global/marker-see.png",
+      "icon_active": "{{root}}images/global/marker-see-active.png",
+      "text": "Fermentum Porta Tristique Ridiculus",
+      "content": {
+        "image": "{{root}}images/dummy/destination-detail-thumb.jpg",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+        "location": "673 Bourke St, Melbourne VIC 3000, Australia",
+        "phone": "+61 423 229 953"
+      }
+    },
+    {
+      "id": "marker-2",
+      "position": {
+        "lng": 106.6898035,
+        "lat": 10.7739855
+      },
+      "icon": "{{root}}images/global/marker-see.png",
+      "icon_active": "{{root}}images/global/marker-see-active.png",
+      "text": "Ullamcorper Ultricies Fusce",
+      "content": {
+        "image": "{{root}}images/dummy/destination-detail-thumb.jpg",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+        "location": "673 Bourke St, Melbourne VIC 3000, Singapore",
+        "phone": "+61 423 229 953"
+      }
+    },
+    {
+      "id": "marker-3",
+      "position": {
+        "lng": 106.6945048,
+        "lat": 10.7802682
+      },
+      "icon": "{{root}}images/global/marker-see.png",
+      "icon_active": "{{root}}images/global/marker-see-active.png",
+      "text": "Sem Tortor Purus",
+      "content": {
+        "image": "{{root}}images/dummy/destination-detail-thumb.jpg",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+        "location": "673 Bourke St, Melbourne VIC 3000, Vietnam",
+        "phone": "+61 423 229 953"
+      }
+    },
+    {
+      "id": "marker-4",
+      "position": {
+        "lng": 106.6988714,
+        "lat": 10.7745874
+      },
+      "icon": "{{root}}images/global/marker-see.png",
+      "icon_active": "{{root}}images/global/marker-see-active.png",
+      "text": "Elit Egestas Fermentum Ligula",
+      "content": {
+        "image": "{{root}}images/dummy/destination-detail-thumb.jpg",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+        "location": "673 Bourke St, Melbourne VIC 3000, US",
+        "phone": "+61 423 229 953"
+      }
+    }
+  ],
+  "promote": {
+    "image": "{{root}}images/global/banner-promote.jpg",
+    "image_mobile": "{{root}}images/global/banner-promote-mobile.jpg",
+    "url": "http://google.com",
+    "text": "Kids stay & eat free",
+    "link_text": "Learn more"
+  }
+}

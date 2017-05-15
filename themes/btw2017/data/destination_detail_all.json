@@ -1,0 +1,107 @@
+{
+  "nav": {
+    "root": "Destination",
+    "url": "destination.html",
+    "text": "Melbourne"
+  },
+  "tabs": [
+    {
+      "classes": "icon-tab-see",
+      "text": "see",
+      "url": "destination-detail.html",
+      "active": false
+    },
+    {
+      "classes": "icon-tab-taste",
+      "text": "taste",
+      "url": "destination-detail.html",
+      "active": false
+    },
+    {
+      "classes": "icon-tab-do",
+      "text": "do",
+      "url": "destination-detail.html",
+      "active": false
+    },
+    {
+      "classes": "icon-tab-all",
+      "text": "all",
+      "url": "destination-detail-all.html",
+      "active": true
+    }
+  ],
+  "heading": "Malesuada Inceptos Tortor Justo Lipsum",
+  "desc": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  "all": [
+    {
+      "type": "map",
+      "text": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+      "link_text": "See on map",
+      "image": "{{root}}images/dummy/city-detail-all-img-1.jpg",
+      "desc": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "content": {
+        "position": {
+          "lng": 106.698602,
+          "lat": 10.782078
+        },
+        "icon_active": "{{root}}images/global/marker-see-active.png",
+        "text": "Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
+        "desc": "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "location": "673 Bourke St, Melbourne VIC 3000, Australia",
+        "phone": "+61 423 229 953"
+      }
+    },
+    {
+      "type": "video",
+      "text": "Curabitur blandit tempus porttitor.",
+      "link_text": "Watch video",
+      "image": "{{root}}images/dummy/city-detail-all-img-2.jpg",
+      "desc": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Curabitur blandit tempus porttitor.",
+      "content": {
+        "video_id": "rJdTUnrrISk"
+      }
+    },
+    {
+      "type": "gallery",
+      "text": "Pellentesque ornare sem lacinia quam venenatis vestibulum.",
+      "link_text": "View gallery",
+      "image": [
+        "{{root}}images/dummy/city-detail-all-img-3.jpg",
+        "{{root}}images/dummy/city-detail-all-img-4.jpg",
+        "{{root}}images/dummy/city-detail-all-img-5.jpg",
+        "{{root}}images/dummy/city-detail-all-img-6.jpg"
+      ],
+      "desc": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec sed odio dui. Curabitur blandit tempus porttitor.",
+      "content": {
+        "image": [
+          {
+            "thumb": "{{root}}images/dummy/city-detail-all-img-3.jpg",
+            "src": "{{root}}images/dummy/city-detail-all-img-3.jpg"
+          },
+          {
+            "thumb": "{{root}}images/dummy/city-detail-all-img-4.jpg",
+            "src": "{{root}}images/dummy/city-detail-all-img-4.jpg"
+          },
+          {
+            "thumb": "{{root}}images/dummy/city-detail-all-img-5.jpg",
+            "src": "{{root}}images/dummy/city-detail-all-img-5.jpg"
+          },
+          {
+            "thumb": "{{root}}images/dummy/city-detail-all-img-6.jpg",
+            "src": "{{root}}images/dummy/city-detail-all-img-6.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "type": "video",
+      "text": "Nulla vitae elit libero, a pharetra augue.",
+      "link_text": "Watch video",
+      "image": "{{root}}images/dummy/city-detail-all-img-7.jpg",
+      "desc": "Donec ullamcorper nulla non metus auctor fringilla. Curabitur blandit tempus porttitor. Donec sed odio dui lore ipsumo.",
+      "content": {
+        "video_id": "rJdTUnrrISk"
+      }
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{#
+-data (object)
+    - item_list (array)
+        - nid
+        - title
+        - summary
+        - thumb
+
+
+#}
+
+{{ attach_library('btw2017/btw-article-list') }}
+<div class="page page-article-listing">
+    {% if data.banner_data.image??false %}
+        <section class="hero">
+            <img class="thumb hidden-xs" src="{{ data.banner_data.image }}"/>
+            <img class="thumb visible-xs" src="{{ data.banner_data.image_mobile??'' }}"/>
+        </section>
+    {% else %}
+        <section class="hero">
+            <img class="thumb hidden-xs" src="{{ base_path ~ directory ~ '/assets/images/dummy/article-listing-hero.jpg' }}"/>
+            <img class="thumb visible-xs" src="{{ base_path ~ directory ~ '/assets/images/dummy/article-listing-hero-xs.jpg' }}"/>
+        </section>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-md-push-1">
+                <section class="list-article-info">
+                    <h2 class="heading">{{ data.banner_data.title??'...' }}</h2>
+                    <ul class="category list-action">
+                        {% for item in data.tab_list??[] %}
+                            <li>
+                                {% if item.active == 1 %}
+                                    <a href="javascript:void(0);" class="active">{{ item.name??'...' }}</a>
+                                {% else %}
+                                    <a href="{{ item.link??'#' }}">{{ item.name??'...' }}</a>
+                                {% endif %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+                <section class="list-article-list">
+                    {% for item in data.item_list??[] %}
+                        <article>
+                            {% if item.thumb??'' %}
+                                <figure>
+                                    <a href="{{ item.link??'#' }}">
+                                        <img src="{{ item.thumb }}"/>
+                                    </a>
+                                </figure>
+                            {% else %}
+                                <figure>
+                                    <a href="{{ item.link??'#' }}">
+                                        <img src="{{ base_path ~ directory }}/assets/images/dummy/article-thumb-1.jpg"/>
+                                    </a>
+                                </figure>
+                            {% endif %}
+                            <div class="info">
+                                <h6 class="cat">
+                                    {% for item2 in item.category_list??[] %}
+                                        {% if item2.image %}
+                                            <img src="{{ item2.image }}" />
+                                        {%  endif %}
+                                        <a href="{{ item2.link??'#category' }}">
+                                            <span>{{ item2.name??'...' }}</span>
+                                        </a>
+                                    {% endfor %}
+                                </h6>
+                                <a href="{{ item.link??'#' }}">
+                                    <h3 class="title">
+                                        {{ item.title??'...' }}
+                                    </h3>
+                                </a>
+                                <p class="desc hidden-xs">
+                                    {{ item.summary??'...' }}
+                                </p>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </section>
+                {% if (data.pager.item_list??[])|length > 1 %}
+                    <div class="list-article-pager desktop">
+                        {% if data.pager.prev_href %}
+                            <a href="{{ data.pager.prev_href }}" class="prev">PREV</a>
+                        {% endif %}
+                        {% for item in data.pager.item_list??[] %}
+                            {% if item.active == 1 %}
+                                <a href="javascript:void(0);" class="active">{{ item.title }}</a>
+                            {% else %}
+                                <a href="{{ item.href }}">{{ item.title }}</a>
+                            {% endif %}
+                        {% endfor %}
+                        {% if data.pager.next_href %}
+                            <a href="{{ data.pager.next_href }}" class="next">NEXT</a>
+                        {% endif %}
+                    </div>
+                    <div class="list-article-pager mobile">
+                        {% if data.pager.prev_href %}
+                            <a href="{{ data.pager.prev_href }}" class="prev">PREV</a>
+                        {% endif %}
+                        <span class="mobile-pager">
+                        Page
+                        </span>
+                        <span class="total">{{ data.pager.current_page??0 }} / {{ data.pager.total_page??0 }}</span>
+                        </span>
+                        {% if data.pager.next_href %}
+                            <a href="{{ data.pager.next_href }}" class="next">NEXT</a>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var __actived_menu_link = '{{ data.actived_menu_link??'' }}';
+</script>

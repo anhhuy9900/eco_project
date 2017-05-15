@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "image": "{{root}}images/dummy/discover-hero.jpg"
+  },
+  "heading": "About Us",
+  "sub_head": "Welcome to the <em>Joy of Travel</em>",
+  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <h3>Condimentum Ligula Cras Aenean</h3><p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p><br/><img src='{{root}}images/dummy/article-detail-image.jpg' /><h4>Egestas Parturient Cursus Quam Justo</h4><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voidluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet?</p><br/><blockquote>For 50 years, WWF has been protecting the future of nature.The world's leading conservation organization,WWF works in 100 countries and is supported by1.2 million members in the United States andclose to 5 million globally.</blockquote><a href='#'>Click here</a><br/><h5>Egestas Parturient Cursus Quam Justo</h5><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voidluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet?</p><br/><h6>Condimentum Ligula Cras Aenean</h6><p>Cras mattis consectetur purus sit amet fermentum. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>",
+  "list": [
+    {
+      "title": "Kids Stay & Eat Free",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "image": "{{root}}images/dummy/discover-list-img-1.jpg",
+      "url": "http://google.com"
+    },
+    {
+      "title": "KidsSuites",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "image": "{{root}}images/dummy/discover-list-img-2.jpg",
+      "url": "http://google.com"
+    },
+    {
+      "title": "KidsClub",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "image": "{{root}}images/dummy/discover-list-img-3.jpg",
+      "url": "http://google.com"
+    },
+    {
+      "title": "IHG Rewards Club",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt. ",
+      "image": "{{root}}images/dummy/discover-list-img-4.jpg",
+      "url": "http://google.com"
+    }
+  ],
+  "category": [
+    {
+      "text": "Australasia"
+    },
+    {
+      "text": "Japan & South Korea"
+    },
+    {
+      "text": "Middle East & Africa"
+    },
+    {
+      "text": "Southeast Asia"
+    },
+    {
+      "text": "Southwest Asia"
+    },
+    {
+      "text": "Resorts"
+    }
+  ],
+  "hotels": [
+    {
+      "text": "Holiday Inn Darling Harbour",
+      "location": "Australia",
+      "url": "http://google.com",
+      "image": "{{root}}images/dummy/discover-hotel-img-1.jpg"
+    },
+    {
+      "text": "Holiday Inn Perth City Centre",
+      "location": "Australia",
+      "url": "http://google.com",
+      "image": "{{root}}images/dummy/discover-hotel-img-2.jpg"
+    },
+    {
+      "text": "Holiday Inn Potts Point",
+      "location": "Australia",
+      "url": "http://google.com",
+      "image": "{{root}}images/dummy/discover-hotel-img-3.jpg"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "image": "{{root}}images/dummy/home-hero.jpg",
+    "type": "video",
+    "text": "Little Big Travellers",
+    "sub": "The Millennial Parents’ Guide to Travel",
+    "target": "rJdTUnrrISk"
+  },
+  "plan": {
+    "heading": "Plan Your Next Family Adventure",
+    "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    "list": [
+      {
+        "classes": "red",
+        "text": "Beach Bums",
+        "image": "{{root}}images/dummy/plan-img-1.jpg",
+        "url": "#"
+      },
+      {
+        "classes": "yellow",
+        "text": "City Escape",
+        "image": "{{root}}images/dummy/plan-img-2.jpg",
+        "url": "#"
+      },
+      {
+        "classes": "blue",
+        "text": "Culture Vultures",
+        "image": "{{root}}images/dummy/plan-img-3.jpg",
+        "url": "#"
+      },
+      {
+        "classes": "green",
+        "text": "Outdoor Adventure",
+        "image": "{{root}}images/dummy/plan-img-4.jpg",
+        "url": "#"
+      }
+    ]
+  },
+  "banner": {
+    "image": "{{root}}images/dummy/home-banner.jpg",
+    "type": "image",
+    "target": "{{root}}images/dummy/home-banner.jpg"
+  }
+}

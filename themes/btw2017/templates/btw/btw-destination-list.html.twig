@@ -1,0 +1,39 @@
+{{ attach_library('btw2017/btw-destination-list') }}
+<div class="page page-destination">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h2 class="heading text-center">{{ data.page_title??'...' }}</h2>
+                <ul class="filter list-action">
+                    {% for item in data.tab_list??[] %}
+                        <li>
+                            {% if item.active == 1 %}
+                                <a href="javascript:void(0);" class="active">{{ item.name??'...' }}</a>
+                            {% else %}
+                                <a href="{{ item.link??'#' }}">{{ item.name??'...' }}</a>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <section class="destination-list">
+                    {% for item in data.item_list??[] %}
+                        <article>
+                            <figure>
+                                <a href="{{ item.link??'bbb' }}">
+                                    <img src="{{ item.thumb?? (base_path ~ directory ~ '/assets/images/global/destination-default.jpg') }}"/>
+                                    <h4>{{ item.title??'...' }}</h4>
+                                </a>
+                            </figure>
+                        </article>
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
