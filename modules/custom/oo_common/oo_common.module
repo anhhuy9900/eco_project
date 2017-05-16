@@ -83,3 +83,12 @@ function get_common_settings_filename() {
   }
   return NULL;
 }
+
+function pr($data, $exit = 0){
+  print '<pre>';
+  print_r($data);
+  print '</pre>';
+  if($exit == 1){
+    die;
+  }
+}

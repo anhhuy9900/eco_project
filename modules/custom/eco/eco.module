@@ -9,6 +9,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Link;
 use Drupal\Core\Url;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Render\Markup;
@@ -25,13 +26,37 @@ define('CAMPAIGN_COOKIE_NAME', 'nestle_gerber_2017');
  */
 function eco_theme($existing, $type, $theme, $path) {
 
-    $themes = [];
-    $themes['home_page'] = [
-        'render element' => 'build',
-        'template' => 'layout/home-page',
-    ];
+  $themes = [];
+  $themes['home_page'] = [
+    'render element' => 'build',
+    'template' => 'layout/home-page',
+  ];
 
-    return $themes;
+  $themes['about_us_page'] = [
+    'render element' => 'build',
+    'template' => 'layout/about-us-page',
+  ];
+
+  return $themes;
+}
+
+function eco_node_view(array &$build, EntityInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+
+  /*switch ($node->getEntityTypeId()) {
+    case 'node':
+      $build = eco_handle_entity_node($build, $node, $view_mode);
+      break;
+
+    default:
+      # code...
+      break;
+  }*/
+}
+
+
+function eco_preprocess_views_view(&$variables) {
+
+
 }
 
 /**
@@ -62,9 +87,31 @@ function eco_entity_delete(EntityInterface $entity) {
  */
 function eco_page_attachments_alter(array &$attachments) {
 
-    foreach ($attachments['#attached']['html_head'] as $key => $attachment) {
-        if (isset($attachment[1]) && $attachment[1] == 'system_meta_generator') {
-            unset($attachments['#attached']['html_head'][$key]);
-        }
+  foreach ($attachments['#attached']['html_head'] as $key => $attachment) {
+    if (isset($attachment[1]) && $attachment[1] == 'system_meta_generator') {
+      unset($attachments['#attached']['html_head'][$key]);
     }
+  }
+}
+
+function eco_handle_entity_node(array &$build, $entity, $view_mode){
+
+  if($view_mode ==  'full'){
+    $node_type = $entity->bundle();
+    switch ($node_type) {
+      case 'about_us_page':
+        $object = new \Drupal\eco\Controller\AboutUsController();
+        $var = $object->get_data($entity);
+        $build['#data'] = $var['#data'];
+        $build['#theme'] = $var['#theme'];
+        break;
+
+      default:
+        # code...
+        break;
+    }
+  }
+
+  return $build;
+
 }
