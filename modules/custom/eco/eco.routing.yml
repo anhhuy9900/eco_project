@@ -1,7 +1,0 @@
-eco.home:
-  path: '/home'
-  defaults:
-    _controller: '\Drupal\eco\Controller\HomeController::index'
-    _title: 'Home page'
-  requirements:
-    _permission: 'access content'

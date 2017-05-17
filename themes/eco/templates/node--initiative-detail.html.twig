@@ -1,0 +1,234 @@
+{{ attach_library('huawei_oprc/initiative_detail') }}
+<main class="page page--initiatives page--initiatives-details" data-off-canvas-content>
+  <!-- /* Masthead */ -->
+  {% set x = node.field_normal_masthead_banner.0.getFieldCollectionItem() %}
+  {% set img_src = x.field_banner_image.entity.uri.value | image_style('initiative_banner') %}
+  <section class="masthead masthead--initiatives masthead--initiatives-color">
+    <div class="masthead__banner">
+      <figure class="item">
+        <figcaption class="clearfix" data-equalizer data-equalize-on="medium">
+          <div class="info" data-equalizer-watch>
+            <h4>{{ x.field_title.value }}</h4>
+            <div class="article__body">
+              {{ x.field_summary.value|raw }}
+            </div>
+          </div>
+          <div class="wrap-img table" data-equalizer-watch>
+            <div class="table__cell">
+              <img src="{{ img_src }}" alt="">
+            </div>
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- /* Initiatives Details */ -->
+  <section class="initiatives-details">
+    <div class="row small-collapse expanded">
+      <div class="small-24 columns">
+        <h4 class="title light">{{node.getTitle}}</h4>
+      </div>
+    </div>
+    <div class="row small-collapse expanded">
+      <div class="small-24 medium-10 medium-push-14 large-10 large-offset-1 large-push-13 columns">
+        <div class="body__text">
+          {{node.field_apply_description.value|raw}}
+        </div>
+        <ul class="initiatives__domains">
+          {% for x in node.field_apply_item %}
+            <li>
+              <div class="description">
+                <p>{{x.value}}</p>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+        {% if node.field_show_apply_button.value %}
+          {% if node.field_apply_button_href.value %}
+            <div class="button__wrapper">
+              <a href="{{ node.field_apply_button_href.value }}" class="button button--primary" title="{{ node.field_apply_text.value }}">{{ node.field_apply_text.value }}</a>
+            </div>
+          {% else %}
+            {% if logged_in %}
+              <div class="form__wrapper">
+                <form id="submit-application-form" action="" method="POST" data-abide novalidate>
+                  <div class="row form__field">
+                    <div class="select-wrapper select-wrapper-1" data-error-mess="Please select Committee Workgroup" data-label="Select Committee Workgroup" data-focus="Your Committee Workgroup">
+                      <div class="inner">
+                        <label for="slGroups" class="form__label">Select Committee Workgroup</label>
+                        <select name="slGroups" id="slGroups" required>
+                          <option value="" disabled selected>Select one...</option>
+                          {% for key,val in node.custom_params.working_groups %}
+                            <option value="{{ key }}">{{ val }}</option>
+                          {% endfor %}
+                        </select>
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row form__field">
+                    <div class="textarea textarea-1" data-error-mess="Please enter message" data-label="Please tell us why do you want to apply as a Committee Member for the Open ROADS Community" data-focus="Your reason">
+                      <div class="inner">
+                        <label for="txtMsg" class="form__label">Please tell us why do you want to apply as a Committee Member for the Open ROADS Community</label>
+                        <textarea class="textarea-message" id="txtMsg" name="txtMsg" required></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row form__field form__error hidden" id="error-wrapper">
+                  </div>
+                  <div class="row form__field form__notifications hidden" id="notice-wrapper">
+                  </div>
+                  <div class="button__wrapper">
+                    <button type="submit" class="button button--primary" title="{{ node.field_apply_text.value }}">{{ node.field_apply_text.value }}</button>
+                  </div>
+                </form>
+              </div>
+            {% else %}
+              <div class="button__wrapper">
+                <a href="{{ url('user.login') }}" class="button button--primary" title="{{ node.field_apply_text.value }}">{{ node.field_apply_text.value }}</a>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        <div class="initiatives__benefits">
+          <h5>Members’ Information</h5>
+          <hr>
+          <ul class="initiatives__slider clearfix initiatives__slider-member">
+            {% for field in node.field_members_information %}
+              {% set x = field.getFieldCollectionItem() %}
+              {% set img_src = x.field_avatar.entity.uri.value | image_style('initiative_member_avatar') %}
+              <li>
+                <div class="media-object">
+                  <div class="media-object-section">
+                    <div class="thumbnail">
+                      <img src="{{ img_src }}">
+                    </div>
+                  </div>
+                  <div class="media-object-section">
+                    <h6>{{ x.field_full_name.value }}</h6>
+                    <p>{{ x.field_title.value }}</p>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% for field in node.field_initiatives_right_blocks %}
+        {% set x = field.getFieldCollectionItem() %}
+        <div class="initiatives__benefits">
+          <h5>{{ x.field_box_label.value|raw }}</h5>
+          <hr>
+          <ul class="initiatives__slider clearfix">
+            {% for field1 in x.field_logo_item %}
+              {% set x1 = field1.getFieldCollectionItem() %}
+              {% set logoFid = x1.field_image.target_id %}
+
+                {% if logoFid %}
+                {% set img_src = x1.field_image.entity.uri.value | image_style('initiative_sponsor_thumb') %}
+                  <li>
+                    <div class="media-object">
+                      <div class="media-object-section">
+                        <div class="thumbnail">
+                          <img src="{{ img_src }}" alt="{{ x1.field_label.value|raw }}">
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                {% else %}
+                  <li>
+                    <div class="media-object">
+                      <div class="media-object-section">
+                        <div class="thumbnail">
+                          <div class="table__cell">
+                            <span>{{ x1.field_label.value|raw }}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                {% endif %}
+
+            {% endfor %}
+          </ul>
+        </div>
+        {% endfor %}
+
+      </div>
+      <div class="small-24 medium-14 medium-pull-10 large-13 large-pull-11 columns">
+        <div class="body__text">
+          {{node.field_description.value|raw}}
+        </div>
+        {% for field in node.field_initiative_boxes %}
+          {% set x = field.getFieldCollectionItem() %}
+          <div class="initiatives__benefits">
+            <h5>{{ x.field_box_label.value }}</h5>
+            <hr>
+            <ul class="list-benefits clearfix" data-equalizer data-equalize-on="medium">
+              {% for field1 in x.field_box_item %}
+                {% set x1 = field1.getFieldCollectionItem() %}
+                {% set img_src = x1.field_initiative_icon.entity.uri.value | image_style('initiative_box_item_thumb') %}
+                <li>
+                  <div class="inner" data-equalizer-watch>
+                    <img src="{{ img_src }}" alt="">
+                    <div class="description">
+                      <p>{{ x1.field_label.value }}</p>
+                    </div>
+                  </div>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endfor %}
+        {% for field in node.field_free_content %}
+          {% set x = field.getFieldCollectionItem() %}
+          <div class="initiatives__media">
+            <h4 class="light">{{ x.field_title.value }}</h4>
+            {{ x.field_html_content.value|raw }}
+          </div>
+        {% endfor %}
+        <hr class="dots">
+        <div class="link__wrapper">
+          <a href="{{ node.custom_params.initiatives_url }}" class="link link--back" title="All Initiatives"><i class="fa fa-angle-left" aria-hidden="true"></i>All Initiatives</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% set html_others = drupal_block('initiative_detail_block_others_block_1') %}
+  {% if node.custom_params.others %}
+    <!-- /* Initiatives */ -->
+    <section class="initiatives">
+      <div class="initiatives__current">
+        <h4>Other {{ node.custom_params.term_name }}</h4>
+        <div class="initiatives-category">
+          <ul class="clearfix">
+            {% for x in node.custom_params.others %}
+              <li>
+                <div class="outer">
+                  <div class="inner clearfix" data-equalizer data-equalize-on="medium">
+                    <div class="table" data-equalizer-watch>
+                      <div class="table__cell">
+                        <img src="{{ x.icon }}" alt="">
+                      </div>
+                    </div>
+                    <div class="info" data-equalizer-watch>
+                      <h5>{{ x.title }}</h5>
+                      <div class="description">
+                        {{ x.summary|raw }}
+                      </div>
+                      <div class="link__wrapper">
+                        <a href="{{ x.url }}" class="link link--cta link--cta-fa" title="Read More">Read More <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+  {% include directory ~ '/templates/inc/footer.html.twig' %}
+</main>

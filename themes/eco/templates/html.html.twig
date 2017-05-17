@@ -6,8 +6,39 @@
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
 </head>
-<body{{ attributes }}>
+<body class="home"{{ attributes }}>
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <div class="preloader-bg">
+    <div class="preloader">
+      <div class="preloader-top">
+        <div class="preloader-top-sun">
+          <div class="preloader-top-sun-bg"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-0"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-45"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-90"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-135"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-180"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-225"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-270"></div>
+          <div class="preloader-top-sun-line preloader-top-sun-line-315"></div>
+        </div>
+      </div>
+      <div class="preloader-bottom">
+        <div class="preloader-bottom-line preloader-bottom-line-lg"></div>
+        <div class="preloader-bottom-line preloader-bottom-line-md"></div>
+        <div class="preloader-bottom-line preloader-bottom-line-sm"></div>
+        <div class="preloader-bottom-line preloader-bottom-line-xs"></div>
+      </div>
+    </div>
+  </div>
+  <!--************************************
+      Wrapper Start
+  *************************************-->
+<div id="wrapper" class="tg-haslayout">
 {{ page }}
+</div>
 {{ page_bottom }}
 
 <js-bottom-placeholder token="{{ placeholder_token|raw }}">

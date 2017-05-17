@@ -11,6 +11,10 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\node\Entity\Node;
 use Drupal\views\Views;
 
+function eco_preprocess(&$variables, $hook){
+
+}
+
 /**
  * Implements hook_preprocess_HOOK() for HTML document templates.
  *
@@ -26,7 +30,7 @@ function eco_preprocess_html(&$variables) {
 function eco_preprocess_node(&$variables) {
   if(isset($variables['node'])) {
     $node = $variables['node'];
-    
+
   }
 }
 
@@ -38,7 +42,7 @@ function eco_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
 function eco_preprocess_block(&$variables) {
-
+    $variables['is_front'] = 1;
 }
 
 /**

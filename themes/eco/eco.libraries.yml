@@ -1,9 +1,33 @@
-global:
+global-styling:
   version: VERSION
   css:
-    css/bootstrap.min.css: {}
-    css/3-col-portfolio.css: {}
+    theme:
+      css/bootstrap.min.css: {}
+      css/font-awesome.min.css: {}
+      css/font-awesome.min.css: {}
+      css/owl.theme.css: {}
+      css/owl.carousel.css: {}
+      css/prettyPhoto.css: {}
+      css/swiper.css: {}
+      css/main.css: {}
+      css/transitions.css: {}
+      css/color.css: {}
+      css/responsive.css: {}
   js:
-    js/jquery.js: {}
-    js/bootstrap.min.js: {}
-
+    js/vendor/jquery-pulgin.js: {}
+    js/vendor/bootstrap.min.js: {}
+    js/prettyPhoto.js: {}
+    js/isotope.pkgd.js: {}
+    js/hoverdir.js: {}
+    js/owl.carousel.js: {}
+    js/parallax.js: {}
+    js/jquery-ui.js: {}
+    js/appear.js: {}
+    js/countTo.js: {}
+    js/swiper.min.js: {}
+    js/nicescroll.js: {}
+    js/handlebars.min.js: {}
+    'http://maps.google.com/maps/api/js?sensor=false': {}
+    js/jquery.storelocator.min.js: {}
+    js/gmap3.js: {}
+    js/main.js: {}

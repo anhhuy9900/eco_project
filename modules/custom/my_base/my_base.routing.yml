@@ -1,0 +1,7 @@
+my_base.home:
+  path: '/home'
+  defaults:
+    _controller: '\Drupal\my_base\Controller\HomeController::index'
+    _title: 'Home page'
+  requirements:
+    _permission: 'access content'

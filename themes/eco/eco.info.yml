@@ -1,9 +1,6 @@
-name: Eco Theme
+name: Eco
 type: theme
 description: 'Eco Theme'
-package: Alpha
-# version: VERSION
-# core: 8.x
 
 regions:
   header: Header
@@ -12,10 +9,8 @@ regions:
   footer: 'Footer'
 
 libraries:
-  - eco/global
+  - eco/global-styling
 
 # Information added by Drupal.org packaging script on 2016-02-01
 version: '8.x-1.0'
 core: '8.x'
-project: 'Eco_theme'
-datestamp: 1454362743
