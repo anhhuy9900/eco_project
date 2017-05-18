@@ -6,7 +6,7 @@
           <div class="tg-blog-image tg-haslayout">
             <div class="col-sm-12">
             <figure>
-              <img src="/{{ directory }}/images/blog-detail/img-01.jpg" alt="image dexcription">
+              <img src="{{ node.field_image.entity.uri.value | image_style('article_thumb') }}" alt="image dexcription">
             </figure>
           </div>
           </div>
@@ -16,69 +16,34 @@
                 <div class="tg-post-head">
                   <div class="left-box">
                     <div class="tg-heading-border">
-                      <h3><a href="#">Blog Title Here</a></h3>
+                      <h3><a href="#">{{ node.getTitle }}</a></h3>
                     </div>
-                  </div>
-                  <div class="right-box">
-                    <ul>
-                      <li class="next-post"><a href="#"><i class="fa fa-long-arrow-left"></i></a></li>
-                      <li class="next-post"><a href="#"><i class="fa fa-long-arrow-right"></i></a></li>
-                    </ul>
                   </div>
                 </div>
                 <div class="tg-post-content tg-haslayout">
 
                   <div class="tg-description">
-                    <p>Imagine attending a workshop on creative writing, in a tepee, or an iPhone photography workshop wandering through the woods. You could sit on the grass whilst listening to a discussion on the future of blogging from the main stage, or hear about the latest in food blogging and Vine videos in a marquee. </p>
-                    <p>“Troll” is the Internet term for someone who is intentionally disruptive to a community. While it (very appropriately) evokes the “troll under the bridge” image, it actually comes from deep sea fishing, where dragging your hook in the water, hoping a fish will bite, is called “trolling”. “Trolls” on the Internet are people who intentionally say mean or disruptive things in the hopes of getting a reaction.</p>
-                    <div class="tg-qoute">
-                      <blockquote>
-                        <q>If you “bite”, you play right into their hands.</q>
-                      </blockquote>
-                      <p>Sadly, there’s only so far working with some people will go. As a community manager, you have a responsibility to the community to keep it healthy. If that means removing someone from it, do it quickly and with as little blood as possible. Remember that your goal is the overall health of the community, not your own personal sense of vengeance. Be polite, be firm, be quick, move on.
-</p>
-                    </div>
+                    {{ node.body.value|raw }}
                   </div>
                 </div>
               </div>
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-right">
               <aside id="tg-shop-sidebar" class="tg-shop-sidebar">
                 <div class="tg-widget widget-brands">
+                  {% if another_nodes_data is not empty %}
                   <div class="tg-widget-holder">
-                    <h3>Categories</h3>
+                    <h3>{{ 'Danh mục' | t }}</h3>
                     <ul>
+                      {% for data in another_nodes_data %}
                       <li>
-                        <a href="#">
-                          <em>Web Design</em>
-                          <i>389</i>
+                        <a href="{{ data.url }}" title="{{ data.title }}">
+                          <em>{{ data.title }}</em>
                         </a>
                       </li>
-                      <li>
-                        <a href="#">
-                          <em>Marketing</em>
-                          <i>256</i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <em>Wordpress</em>
-                          <i>56</i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <em>Graphic Design</em>
-                          <i>43</i>
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <em>Photography</em>
-                          <i>38</i>
-                        </a>
-                      </li>
+                      {% endfor %}
                     </ul>
                   </div>
+                  {% endif %}
                 </div>
               </aside>
             </div>

@@ -22,7 +22,9 @@ class HeaderBlock extends BlockBase {
 
     return [
       '#theme' => 'header_block',
-      '#params' => [],
+      '#params' => [
+        'is_front_page' => \Drupal::service('path.matcher')->isFrontPage()
+      ],
     ];
 
   }

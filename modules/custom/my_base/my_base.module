@@ -19,7 +19,6 @@ define('AP_API_ERR_MSG_401', 'The request has not been applied because it lacks 
 define('AP_API_ERR_MSG_403', 'The server understood the request but refuses to authorize it.');
 define('AP_API_ERR_MSG_404', 'The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.');
 define('AP_API_ERR_MSG_500', 'The server encountered an unexpected condition that prevented it from fulfilling the request.');
-define('CAMPAIGN_COOKIE_NAME', 'nestle_gerber_2017');
 
 /**
  * Implements hook_theme().
@@ -45,8 +44,7 @@ function my_base_theme($existing, $type, $theme, $path) {
   if (!empty($blocks)) {
     foreach ($blocks as $item) {
       $themes[$item] = [
-        //'variables' => ['params' => NULL],
-        'render element' => 'build',
+        'variables' => ['params' => NULL],
         'template' => 'block/' . $item,
       ];
     }
@@ -129,4 +127,23 @@ function my_base_handle_entity_node(array &$build, $entity, $view_mode){
 
   return $build;
 
+}
+
+function func_get_another_node($nid){
+  $conn = Database::getConnection();
+  $data = $conn->select('node_field_data', 'pk')
+    ->fields('pk', array('nid', 'title'))
+    ->condition('nid', $nid, '!=')
+    ->condition('type', 'about_us')
+    ->condition('status', 1)
+    ->execute()
+    ->fetchAll();
+  if($data){
+    foreach ($data as $key => $value) {
+      $url = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $value->nid], ['absolute' => TRUE]);
+      $value->url = $url->toString();
+    }
+  }
+
+  return $data;
 }
