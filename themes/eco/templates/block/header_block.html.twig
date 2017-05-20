@@ -16,22 +16,21 @@
               </button>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              {% if params.top_menu is not empty %}
               <ul class="navbar-right">
-                <li class="active"><a href="index.html">Home</a>
+                {% for parent in params.top_menu %}
+                <li class="active"><a href="{{ parent.url }}">{{ parent.name }}</a>
+                  {% if parent.child is not empty %}
                   <ul>
-                    <li><a href="index.html">Home1</a></li>
-                    <li><a href="index2.html">Home2</a></li>
+                    {% for child in parent.child %}
+                    <li><a href="{{ child.url }}">{{ child.name }}</a></li>
+                    {% endfor %}
                   </ul>
+                  {% endif %}
                 </li>
-                <li><a href="aboutus.html">about</a></li>
-                <li><a href="projects.html">projects</a></li>
-                <li> <a href="shop-grid.html">shop</a>
-                  <ul>
-                    <li><a href="shop-grid.html">shop grid</a></li>
-                    <li><a href="shop-detail.html">shop detail</a></li>
-                  </ul>
-                </li>
+                {% endfor %}
               </ul>
+              {% endif %}
             </div>
           </nav>
           <nav id="tg-addnav" class="tg-addnav tg-search-cart">

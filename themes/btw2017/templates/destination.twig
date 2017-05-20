@@ -1,0 +1,11 @@
+{% extends "./templates/layout/page.html.twig" %}
+
+{% block head_title %}Destination{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+  <div class="page page-destination">
+    {% include './templates/block/destination-filter.html.twig' with destination %}
+    {% include './templates/block/destination-list.html.twig' with destination %}
+  </div>
+{% endblock %}
+{% block js %}{% endblock %}

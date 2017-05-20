@@ -1,0 +1,20 @@
+{% extends "./templates/layout/page.html.twig" %}
+
+{% block head_title %}Homepage{% endblock %}
+{% block css %}{% endblock %}
+{% block content %}
+  <div class="page page-home">
+    {% include './templates/block/hero.html.twig' with home.hero %}
+    {% include './templates/block/plan.html.twig' with home.plan %}
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          {% include './templates/block/article-relative.html.twig' with article_detail %}
+        </div>
+      </div>
+    </div>
+    {% include './templates/block/banner.html.twig' with home.banner %}
+    {% include './templates/block/modal.html.twig' %}
+  </div>
+{% endblock %}
+{% block js %}{% endblock %}

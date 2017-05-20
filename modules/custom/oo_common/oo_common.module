@@ -92,3 +92,8 @@ function pr($data, $exit = 0){
     die;
   }
 }
+
+function create_url_by_node_id($nid){
+  $url = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid], ['absolute' => TRUE]);
+  return $url->toString();
+}

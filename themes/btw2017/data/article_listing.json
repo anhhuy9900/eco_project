@@ -1,0 +1,85 @@
+{
+  "hero": {
+    "image": "{{root}}images/dummy/article-listing-hero.jpg"
+  },
+  "heading": "Euismod pellentesque mattis cras lorem",
+  "category": [
+    {
+      "text": "All"
+    },
+    {
+      "text": "Things To Do"
+    },
+    {
+      "text": "Tips"
+    }
+  ],
+  "list": [
+    {
+      "title": "Top 10 Water Activities and Sports in Phuket.",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cat": "Things To Do",
+      "cat_icon": "icon-todo",
+      "image": "{{root}}images/dummy/article-thumb-1.jpg",
+      "url": "article-detail.html"
+    },
+    {
+      "title": "Donec ullamcorper nulla non metus auctor fringilla.",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+      "cat": "Tips",
+      "cat_icon": "icon-tips",
+      "image": "{{root}}images/dummy/article-thumb-2.jpg",
+      "url": "article-detail.html"
+    },
+    {
+      "title": "Vivamus sagittis lacus",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cat": "Tips",
+      "cat_icon": "icon-tips",
+      "image": "{{root}}images/dummy/article-thumb-3.jpg",
+      "url": "article-detail.html"
+    },
+    {
+      "title": "Nullam id dolor id nibh ultricies vehicula ut id elit.",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ipsum dolor sit amet, consectetur adipiscing elit, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cat": "Things To Do",
+      "cat_icon": "icon-todo",
+      "image": "{{root}}images/dummy/article-thumb-4.jpg",
+      "url": "article-detail.html"
+    },
+    {
+      "title": "Etiam porta sem malesuada magna mollis euismod. Etiam porta sem malesuada magna mollis euismod.",
+      "desc": "Lorem ipsum dolor sit amet.",
+      "cat": "Things To Do",
+      "cat_icon": "icon-todo",
+      "image": "{{root}}images/dummy/article-thumb-5.jpg",
+      "url": "article-detail.html"
+    },
+    {
+      "title": "Cras mattis consectetur purus sit amet fermentum.",
+      "desc": "Lorem ipsum dolor sit amet. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cat": "Tips",
+      "cat_icon": "icon-tips",
+      "image": "{{root}}images/dummy/article-thumb-6.jpg",
+      "url": "article-detail.html"
+    }
+  ],
+  "pager": [
+    {
+      "text": 1,
+      "active": true
+    },
+    {
+      "text": 2,
+      "active": false
+    },
+    {
+      "text": 3,
+      "active": false
+    },
+    {
+      "text": 4,
+      "active": false
+    }
+  ]
+}

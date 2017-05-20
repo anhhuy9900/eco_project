@@ -13,12 +13,8 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Render\Markup;
+use Drupal\oo_common\Helper\CommonHelper;
 
-define('AP_API_ERR_MSG_400', 'The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).');
-define('AP_API_ERR_MSG_401', 'The request has not been applied because it lacks valid authentication credentials for the target resource.');
-define('AP_API_ERR_MSG_403', 'The server understood the request but refuses to authorize it.');
-define('AP_API_ERR_MSG_404', 'The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.');
-define('AP_API_ERR_MSG_500', 'The server encountered an unexpected condition that prevented it from fulfilling the request.');
 
 /**
  * Implements hook_theme().
@@ -57,7 +53,7 @@ function my_base_node_view(array &$build, EntityInterface $node, EntityViewDispl
 
   /*switch ($node->getEntityTypeId()) {
     case 'node':
-      $build = my_base_handle_entity_node($build, $node, $view_mode);
+      $build = func_handle_entity_node($build, $node, $view_mode);
       break;
 
     default:
@@ -107,7 +103,7 @@ function my_base_page_attachments_alter(array &$attachments) {
   }
 }
 
-function my_base_handle_entity_node(array &$build, $entity, $view_mode){
+function func_handle_entity_node(array &$build, $entity, $view_mode){
 
   if($view_mode ==  'full'){
     $node_type = $entity->bundle();
@@ -129,12 +125,14 @@ function my_base_handle_entity_node(array &$build, $entity, $view_mode){
 
 }
 
-function func_get_another_node($nid){
+function func_get_another_node($nid, $langcode){
+
   $conn = Database::getConnection();
   $data = $conn->select('node_field_data', 'pk')
     ->fields('pk', array('nid', 'title'))
     ->condition('nid', $nid, '!=')
     ->condition('type', 'about_us')
+    ->condition('langcode', $langcode)
     ->condition('status', 1)
     ->execute()
     ->fetchAll();
