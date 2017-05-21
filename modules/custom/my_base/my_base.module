@@ -23,13 +23,8 @@ function my_base_theme($existing, $type, $theme, $path) {
 
   $themes = [];
   $themes['home_page'] = [
-    'render element' => 'build',
+    'variables' => ['params' => NULL],
     'template' => 'layout/home-page',
-  ];
-
-  $themes['about_us_page'] = [
-    'render element' => 'build',
-    'template' => 'layout/about-us-page',
   ];
 
   $blocks = [
@@ -51,7 +46,7 @@ function my_base_theme($existing, $type, $theme, $path) {
 
 function my_base_node_view(array &$build, EntityInterface $node, EntityViewDisplayInterface $display, $view_mode) {
 
-  /*switch ($node->getEntityTypeId()) {
+  switch ($node->getEntityTypeId()) {
     case 'node':
       $build = func_handle_entity_node($build, $node, $view_mode);
       break;
@@ -59,7 +54,7 @@ function my_base_node_view(array &$build, EntityInterface $node, EntityViewDispl
     default:
       # code...
       break;
-  }*/
+  }
 }
 
 
@@ -108,12 +103,12 @@ function func_handle_entity_node(array &$build, $entity, $view_mode){
   if($view_mode ==  'full'){
     $node_type = $entity->bundle();
     switch ($node_type) {
-      case 'about_us_page':
-        $object = new \Drupal\my_base\Controller\AboutUsController();
+      case 'home':
+        $object = new \Drupal\my_base\Controller\HomeController();
         $var = $object->get_data($entity);
-        $build['#data'] = $var['#data'];
+        $build['#params'] = $var['#params'];
         $build['#theme'] = $var['#theme'];
-        break;
+        break;  
 
       default:
         # code...

@@ -55,7 +55,6 @@ class EntityHelper {
     }
     else {
       $vals = $object->getValue();
-      _dump($vals);
       if ($index < 0) {
         $res = array();
         foreach ($vals as $entity) {

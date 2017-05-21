@@ -14,11 +14,6 @@ use Drupal\oo_common\Helper\UtilityHelper;
 class AboutUsController extends ControllerBase
 {
 
-	function __construct()
-	{
-		# code...
-	}
-
 	public function get_data($entity){
 		$title = EntityHelper::getFieldValue($entity, 'title');
 		$body = EntityHelper::getFieldValue($entity, 'body');

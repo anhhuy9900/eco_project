@@ -16,16 +16,18 @@ use Drupal\oo_common\Helper\CommonHelper;
  * )
  */
 class HeaderBlock extends BlockBase {
-
-  // function __construct(array $configuration, $plugin_id, $plugin_definition){
-  //   parent::__construct($configuration, $plugin_id, $plugin_definition);
-  //   $this->language = CommonHelper::func_get_current_lang();
-  // }
+  
+  private $language;
+  function __construct(array $configuration, $plugin_id, $plugin_definition){
+    parent::__construct($configuration, $plugin_id, $plugin_definition);
+    $this->language = CommonHelper::func_get_current_lang();
+  }
 
   /**
    * {@inheritdoc}
    */
   public function build() {
+
     $language = CommonHelper::func_get_current_lang();
     $menu_tree = \Drupal::menuTree();
     $parameters = new MenuTreeParameters();
@@ -38,6 +40,7 @@ class HeaderBlock extends BlockBase {
     return [
       '#theme' => 'header_block',
       '#params' => [
+        'log_site' => file_url_transform_relative(file_create_url(theme_get_setting('logo.url'))),
         'top_menu' => $menu,
         'is_front_page' => \Drupal::service('path.matcher')->isFrontPage()
       ],
@@ -53,7 +56,7 @@ class HeaderBlock extends BlockBase {
       if ($item->link->isEnabled()) {
         $name = $item->link->getTitle();
         $url = $item->link->getUrlObject();
-        $url_string = $url->toString();
+        $url_string = $url->toString() ? $url->toString() : '#';
 
         //If not root element, add as child
         if ($parent === FALSE) {

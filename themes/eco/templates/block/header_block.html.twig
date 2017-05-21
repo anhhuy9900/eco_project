@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-xs-12">
         <strong class="logo">
-          <a href="index.html"> <img src="/{{ directory }}/images/logo1.png" alt="image description"></a>
+          <a href="index.html"> <img src="{{ params.log_site }}" alt="image description"></a>
         </strong>
         <div class="tg-rightarea">
           <nav id="tg-nav" class="tg-nav">
@@ -19,7 +19,7 @@
               {% if params.top_menu is not empty %}
               <ul class="navbar-right">
                 {% for parent in params.top_menu %}
-                <li class="active"><a href="{{ parent.url }}">{{ parent.name }}</a>
+                <li><a href="{{ parent.url }}">{{ parent.name }}</a>
                   {% if parent.child is not empty %}
                   <ul>
                     {% for child in parent.child %}
@@ -55,9 +55,6 @@
   </div>
 </header>
 
-{% if params.is_front_page %}
-  {% include directory ~ '/templates/block/banner/home_banner.html.twig' %}
-{% else %}
+{% if not params.is_front_page %}
   {% include directory ~ '/templates/block/banner/article_banner.html.twig' %}
-
 {% endif %}

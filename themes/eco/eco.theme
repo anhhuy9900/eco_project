@@ -22,7 +22,7 @@ function eco_preprocess(&$variables, $hook){
  * Adds body classes if certain regions have content.
  */
 function eco_preprocess_html(&$variables) {
-
+  
 }
 
 /**
