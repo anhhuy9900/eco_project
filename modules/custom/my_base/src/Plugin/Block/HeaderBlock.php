@@ -16,12 +16,12 @@ use Drupal\oo_common\Helper\CommonHelper;
  * )
  */
 class HeaderBlock extends BlockBase {
-  
-  private $language;
-  function __construct(array $configuration, $plugin_id, $plugin_definition){
-    parent::__construct($configuration, $plugin_id, $plugin_definition);
-    $this->language = CommonHelper::func_get_current_lang();
-  }
+
+  // private $language;
+  // function __construct(array $configuration, $plugin_id, $plugin_definition){
+  //   parent::__construct($configuration, $plugin_id, $plugin_definition);
+  //   $this->language = CommonHelper::func_get_current_lang();
+  // }
 
   /**
    * {@inheritdoc}

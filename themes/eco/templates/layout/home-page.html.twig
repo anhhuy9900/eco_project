@@ -195,15 +195,16 @@
       </div>
     </div>
   </section>
-  
+
+  {% if params.project_categories is not empty %}
   <section class="tg-main-section tg-haslayout bg-dark">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
-      <div class="tg-heading">
+            <div class="tg-heading">
               <h2>Our Recent Work</h2>
-      </div>
+            </div>
             <div class="tg-description">
               <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
@@ -219,11 +220,9 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                   <ul id="tg-filterbale-nav" class="option-set">
                     <li class="current-menu-item"><a data-filter="*" href="#">All</a></li>
-                    <li><a data-filter=".solar" href="#">solar</a></li>
-                    <li><a data-filter=".ecosystem" href="#">Ecosystem</a></li>
-                    <li><a data-filter=".organic" href="#">organic</a></li>
-                    <li><a data-filter=".biology" href="#">biology</a></li>
-          <li><a data-filter=".organic" href="#">Recycling</a></li>
+                    {% for category in params.project_categories %}
+                    <li><a data-filter=".{{ 'category-' ~ category.tid }}" href="#">{{ category.name }}</a></li>
+                    {% endfor %}
                   </ul>
                 </div>
               </nav>
@@ -231,94 +230,16 @@
             <div class="clearfix"></div>
             <div class=" row">
               <div id="filter-masonry" class="tg-portfolio-content tg-haslayout">
-                <div class="masonry-grid solar">
+                {% for project in params.arr_projects %}
+                <div class="masonry-grid {{ 'category-' ~ project.category_id }}">
                   <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-01.jpg" alt="image description"> </figure>
+                    <figure> <img src="{{ project.image.thumbnail }}" alt="image description"> </figure>
                     <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-01.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
+                      <a class="anchor-bottom" href="{{ project.url }}" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
                     </div>
                   </div>
                 </div>
-                <div class="masonry-grid ecosystem">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-02.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-02.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid organic">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-03.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-03.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid biology">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-04.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-04.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid solar">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-05.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-05.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid ecosystem">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-07.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-07.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid organic">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-08.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-08.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid biology">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-06.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-06.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid solar">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-09.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-09.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid ecosystem">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-10.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-10.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="masonry-grid organic">
-                  <div class="tg-project tg-border">
-                    <figure> <img src="/{{ directory }}/images/portfolio/img-11.jpg" alt="image description"> </figure>
-                    <div class="tg-portfolio-hover">
-                      <a class="anchor-bottom" href="/{{ directory }}/images/portfolio/img-11.jpg" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
-                    </div>
-                  </div>
-                </div>
+                {% endfor %}
               </div>
             </div>
           </div>
@@ -326,6 +247,8 @@
       </div>
     </div>
   </section>
+  {% endif %}
+
   <section class="tg-main-section tg-bgbuynow tg-haslayout ">
     <div class="container">
       <div class="row">
