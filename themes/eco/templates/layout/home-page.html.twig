@@ -233,7 +233,7 @@
                 {% for project in params.arr_projects %}
                 <div class="masonry-grid {{ 'category-' ~ project.category_id }}">
                   <div class="tg-project tg-border">
-                    <figure> <img src="{{ project.image.thumbnail }}" alt="image description"> </figure>
+                    <figure> <img src="{{ project.image.thumbnail }}" alt="image description" class="{{ project.height }}"> </figure>
                     <div class="tg-portfolio-hover">
                       <a class="anchor-bottom" href="{{ project.url }}" data-rel="prettyPhoto[product]"><i class="fa fa-search"></i></a>
                     </div>

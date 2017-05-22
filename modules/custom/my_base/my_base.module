@@ -27,6 +27,11 @@ function my_base_theme($existing, $type, $theme, $path) {
     'template' => 'layout/home-page',
   ];
 
+  $themes['project_all_page'] = [
+    'variables' => ['params' => NULL],
+    'template' => 'layout/project-all-page',
+  ];
+
   $blocks = [
     'header_block',
     'footer_block',
@@ -120,14 +125,14 @@ function func_handle_entity_node(array &$build, $entity, $view_mode){
 
 }
 
-function func_get_another_node($nid, $langcode){
+function func_get_another_node($node_type, $nid, $langcode){
 
   $conn = Database::getConnection();
   $data = $conn->select('node_field_data', 'pk')
     ->fields('pk', array('nid', 'title'))
     ->condition('nid', $nid, '!=')
-    ->condition('type', 'about_us')
-    ->condition('langcode', $langcode)
+    ->condition('type', $node_type, '=')
+    ->condition('langcode', $langcode, '=')
     ->condition('status', 1)
     ->execute()
     ->fetchAll();

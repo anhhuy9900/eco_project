@@ -1,0 +1,45 @@
+<main id="main" class="tg-haslayout">
+    {% if params.project_categories is not empty %}
+  <section class="tg-main-section tg-haslayout bg-dark">
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-xs-12">
+          <div class="tg-portfolio tg-haslayout">
+            <div class="tg-portfolio-head tg-haslayout">
+              <nav class="tg-nav">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                  <ul id="tg-filterbale-nav" class="option-set">
+                    <li class="current-menu-item"><a data-filter="*" href="#">All</a></li>
+                    {% for category in params.project_categories %}
+                    <li><a data-filter=".{{ 'category-' ~ category.tid }}" href="#">{{ category.name }}</a></li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              </nav>
+            </div>
+            <div class="clearfix"></div>
+            <div class=" row">
+              <div id="filter-masonry" class="tg-portfolio-content tg-haslayout">
+                {% for project in params.arr_projects %}
+                <div class="masonry-grid {{ 'category-' ~ project.category_id }}">
+                  <div class="tg-project tg-border">
+                    <figure> <img src="{{ project.image.thumbnail }}" alt="image description" class="{{ project.height }}"> </figure>
+                    <div class="tg-portfolio-hover">
+                      <a class="anchor-bottom" href="{{ project.url }}"><i class="fa fa-search"></i></a>
+                    </div>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+</main>

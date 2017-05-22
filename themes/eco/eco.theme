@@ -34,7 +34,7 @@ function eco_preprocess_node(&$variables) {
   if(isset($variables['node'])) {
     $node = $variables['node'];
 
-    $variables['another_nodes_data'] = func_get_another_node($node->id(), $langcode);
+    $variables['another_nodes_data'] = func_get_another_node($node->getType(), $node->id(), $langcode);
   }
 }
 

@@ -1,7 +1,7 @@
-# my_base.home:
-#   path: '/home'
-#   defaults:
-#     _controller: '\Drupal\my_base\Controller\HomeController::index'
-#     _title: 'Home page'
-#   requirements:
-#     _permission: 'access content'
+my_base.home:
+  path: '/project-all'
+  defaults:
+    _controller: '\Drupal\my_base\Controller\ProjectsController::index'
+    _title: 'Project all page'
+  requirements:
+    _permission: 'access content'
