@@ -1,0 +1,6 @@
+name: My Config
+description: 'Manages config configuration.'
+package: Custom Module
+
+type: module
+core: 8.x

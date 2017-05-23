@@ -1,0 +1,31 @@
+my_config.list:
+  path: '/admin/config/system/my_config'
+  defaults:
+    _entity_list: 'my_config'
+    _title: 'my_config configuration'
+  requirements:
+    _permission: 'administer site configuration'
+
+my_config.add:
+  path: '/admin/config/system/my_config/add'
+  defaults:
+    _entity_form: 'my_config.add'
+    _title: 'Add my_config'
+  requirements:
+    _permission: 'administer site configuration'
+
+my_config.edit:
+  path: '/admin/config/system/my_config/{my_config}'
+  defaults:
+    _entity_form: 'my_config.edit'
+    _title: 'Edit my_config'
+  requirements:
+    _permission: 'administer site configuration'
+
+my_config.delete:
+  path: '/admin/config/system/my_config/{my_config}/delete'
+  defaults:
+    _entity_form: 'my_config.delete'
+    _title: 'Delete my_config'
+  requirements:
+    _permission: 'administer site configuration'
