@@ -32,6 +32,13 @@ function my_base_theme($existing, $type, $theme, $path) {
     'template' => 'layout/project-all-page',
   ];
 
+  /* Admin Management */
+  $themes['content_management'] = [
+    'variables' => ['params' => NULL],
+    'template' => 'layout/admin/content-management',
+  ];
+  /* End Admin Management */
+
   $blocks = [
     'header_block',
     'footer_block',
@@ -113,7 +120,7 @@ function func_handle_entity_node(array &$build, $entity, $view_mode){
         $var = $object->get_data($entity);
         $build['#params'] = $var['#params'];
         $build['#theme'] = $var['#theme'];
-        break;  
+        break;
 
       default:
         # code...

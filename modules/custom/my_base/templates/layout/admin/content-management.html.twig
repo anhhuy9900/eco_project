@@ -1,0 +1,16 @@
+<div class="region region-content">
+  <div id="block-seven-content" class="block block-system block-system-main-block">
+	{% if params.list_menus is not empty %}
+	<ul class="admin-list">
+		{% for data in params.list_menus %}
+		<li>
+			<a href="{{ data.url }}">
+				<span class="label">{{ data.title }}</span>
+				<div class="description">{{ data.description }}</div>
+			</a>
+		</li>
+		{% endfor %}
+	</ul>
+	{% endif %}
+  </div>
+</div>

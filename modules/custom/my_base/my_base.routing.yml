@@ -5,3 +5,11 @@ my_base.home:
     _title: 'Project all page'
   requirements:
     _permission: 'access content'
+
+my_base.admin.management:
+  path: '/admin/content-management'
+  defaults:
+    _controller: '\Drupal\my_base\Controller\ContentManagementController::index'
+    _title: 'Content Management'
+  requirements:
+    _permission: 'access content overview'
