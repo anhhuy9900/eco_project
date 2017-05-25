@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace Drupal\my_config\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
@@ -25,8 +25,8 @@ use Drupal\my_config\MyConfigInterface;
  *     "label" = "label",
  *   },
  *   links = {
- *     "edit-form" = "/admin/config/system/my_config/{my_config}",
- *     "delete-form" = "/admin/config/system/my_config/{my_config}/delete",
+ *     "edit-form" = "/admin/my_config/{my_config}",
+ *     "delete-form" = "/admin/my_config/{my_config}/delete",
  *   }
  * )
  */

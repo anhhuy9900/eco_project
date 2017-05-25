@@ -6,6 +6,14 @@ my_base.home:
   requirements:
     _permission: 'access content'
 
+my_base.contact:
+  path: '/contact-us'
+  defaults:
+    _controller: '\Drupal\my_base\Controller\ContactController::index'
+    _title: 'Contact page'
+  requirements:
+    _permission: 'access content'
+
 my_base.admin.management:
   path: '/admin/content-management'
   defaults:
@@ -13,3 +21,11 @@ my_base.admin.management:
     _title: 'Content Management'
   requirements:
     _permission: 'access content overview'
+
+site_config_forms_contribute:
+  path: '/admin/site-config'
+  defaults:
+    _form: '\Drupal\my_base\Form\SiteConfigForm'
+    _title: 'Conribute page'
+  requirements:
+    _permission: 'access content'

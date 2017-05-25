@@ -32,6 +32,11 @@ function my_base_theme($existing, $type, $theme, $path) {
     'template' => 'layout/project-all-page',
   ];
 
+  $themes['contact_page'] = [
+    'variables' => ['params' => NULL],
+    'template' => 'layout/contact-page',
+  ];
+
   /* Admin Management */
   $themes['content_management'] = [
     'variables' => ['params' => NULL],

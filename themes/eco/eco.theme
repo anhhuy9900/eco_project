@@ -82,11 +82,11 @@ function eco_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state
  * @see Drupal\Core\Asset\LibraryResolverInterface::getCssAssets()
  */
 function eco_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
-  /*foreach ($css as $filename => $info) {
+  foreach ($css as $filename => $info) {
     if(strpos($filename, 'core/') === 0) {
       unset($css[$filename]);
     }
-  }*/
+  }
 }
 
 /**
@@ -102,9 +102,9 @@ function eco_css_alter(&$css, \Drupal\Core\Asset\AttachedAssetsInterface $assets
  * @see \Drupal\Core\Asset\AssetResolver
  */
 function eco_js_alter(&$javascript, \Drupal\Core\Asset\AttachedAssetsInterface $assets) {
-  /*foreach ($javascript as $filename => $info) {
+  foreach ($javascript as $filename => $info) {
     if(strpos($filename, 'core/') === 0) {
       unset($javascript[$filename]);
     }
-  }*/
+  }
 }

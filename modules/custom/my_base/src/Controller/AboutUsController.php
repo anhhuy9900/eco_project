@@ -24,7 +24,7 @@ class AboutUsController extends ControllerBase
 
 		$element = array(
       		'#theme' => 'about_us_page',
-      		'#data' => $data,
+      		'#params' => $data,
     	);
 
     	return $element;

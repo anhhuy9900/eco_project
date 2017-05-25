@@ -1,7 +1,9 @@
-<?php 
+<?php
 namespace Drupal\my_config;
 
 use Drupal\Core\Config\Entity\ConfigEntityInterface;
+use Drupal\user\EntityOwnerInterface;
+use Drupal\Core\Entity\EntityChangedInterface;
 
 /**
  * Provides an interface defining an Example entity.
