@@ -11,8 +11,13 @@ use Drupal\image\Entity\ImageStyle;
 use Drupal\node\Entity\Node;
 use Drupal\views\Views;
 use Drupal\oo_common\Helper\CommonHelper;
+use Drupal\oo_common\Helper\FileHelper;
 
 function eco_preprocess(&$variables, $hook){
+  if($hook == 'header_block') {
+    //Get image for Common Banner
+    $variables['top_banner_common'] = FileHelper::getImagePathByFid(\Drupal::state()->get('top_banner_common'));
+  }
 
 }
 

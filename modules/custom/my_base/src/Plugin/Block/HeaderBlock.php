@@ -27,8 +27,10 @@ class HeaderBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-
     $language = CommonHelper::func_get_current_lang();
+
+    $breadcrumb = $this->get_breadcrumb($language);
+
     $menu_tree = \Drupal::menuTree();
     $parameters = new MenuTreeParameters();
     $parameters->setMaxDepth(2);
@@ -42,7 +44,8 @@ class HeaderBlock extends BlockBase {
       '#params' => [
         'log_site' => file_url_transform_relative(file_create_url(theme_get_setting('logo.url'))),
         'top_menu' => $menu,
-        'is_front_page' => \Drupal::service('path.matcher')->isFrontPage()
+        'is_front_page' => \Drupal::service('path.matcher')->isFrontPage(),
+        'breadcrumb' => $breadcrumb
       ],
     ];
 
@@ -82,5 +85,22 @@ class HeaderBlock extends BlockBase {
     }
   }
 
+  private function get_breadcrumb($language) {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if(empty($node)) {
+      return [];
+    }
+    $arr_menu = [
+      [
+        'title' => t('Home')->__toString(),
+        'url' => \Drupal::request()->getSchemeAndHttpHost() . '/' . $language,
+      ],
+      [
+        'title' => $node->getTitle(),
+        'url' => '',
+      ]
+    ];
 
+    return $arr_menu;
+  }
 }

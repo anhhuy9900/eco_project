@@ -1,8 +1,11 @@
-<div class="tg-main-section tg-banner tg-haslayout parallax-window" data-parallax="scroll" data-bleed="100" data-speed="0.2" data-image-src="/{{ directory }}/images/slider/img-03.jpg">
+<div class="tg-main-section tg-banner tg-haslayout parallax-window" data-parallax="scroll" data-bleed="100" data-speed="0.2" data-image-src="{{ top_banner_common }}">
   <div class="container">
+  {% if params.breadcrumb is not empty %}
   <ul class="tg-breadcrumb">
-    <li>HOME</li>
-    <li>BLOG DETAIL</li>
+    {% for data in params.breadcrumb %}
+    <li>{{ data.title }}</li>
+    {% endfor %}
   </ul>
+  {% endif %}
   </div>
 </div>

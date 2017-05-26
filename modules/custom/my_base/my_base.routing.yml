@@ -26,6 +26,6 @@ site_config_forms_contribute:
   path: '/admin/site-config'
   defaults:
     _form: '\Drupal\my_base\Form\SiteConfigForm'
-    _title: 'Conribute page'
+    _title: 'Site Config page'
   requirements:
     _permission: 'access content'
