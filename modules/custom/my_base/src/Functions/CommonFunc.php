@@ -42,6 +42,27 @@ class CommonFunc
     return $data;
   }
 
+  public static function func_get_another_node($node_type, $nid, $langcode){
+
+    $conn = Database::getConnection();
+    $data = $conn->select('node_field_data', 'pk')
+    ->fields('pk', array('nid', 'title'))
+    ->condition('nid', $nid, '!=')
+    ->condition('type', $node_type, '=')
+    ->condition('langcode', $langcode, '=')
+    ->condition('status', 1)
+    ->execute()
+    ->fetchAll();
+    if($data){
+    foreach ($data as $key => $value) {
+      $url = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $value->nid], ['absolute' => TRUE]);
+      $value->url = $url->toString();
+    }
+    }
+
+    return $data;
+  }
+
   public static function project_image_random() {
       $array_height = array(
         'rd-height-445', 
@@ -54,5 +75,61 @@ class CommonFunc
       );
       $key = rand(0, 6);
       return $array_height[$key];
+  }
+
+  public static function eco_render_menu_management_admin() {
+    $list_menus = array(
+      array(
+        'title' => 'Quản lý Mục Trang chủ',
+        'description' => 'Quản lý nội dung phần trang chủ',
+        'url' => '/admin/home-management'
+      ),
+      array(
+        'title' => 'Quản lý Giới Thiệu',
+        'description' => 'Quản lý nội dung Giới Thiệu',
+        'url' => '/admin/about-us-management'
+      ),
+      array(
+        'title' => 'Quản lý Cơ Hội Nghề Nghiệp',
+        'description' => 'Quản lý nội dung Cơ Hội Nghề Nghiệp',
+        'url' => '/admin/recruiment-management'
+      ),
+      array(
+        'title' => 'Quản lý Lĩnh vực hoạt động',
+        'description' => 'Quản lý nội dung Lĩnh vực hoạt động',
+        'url' => '/admin/field-operation-management'
+      ),
+      array(
+        'title' => 'Quản lý Dự án',
+        'description' => 'Quản lý nội dung Dự án',
+        'url' => '/admin/projects-management'
+      ),
+      array(
+        'title' => 'Quản lý Thành viên và đối tác',
+        'description' => 'Quản lý nội dung Thành viên và đối tác',
+        'url' => '/admin/partners-management'
+      ),
+      array(
+        'title' => 'Quản lý Năng lực',
+        'description' => 'Quản lý nội dung Năng lực',
+        'url' => '/admin/talent-management'
+      ),
+      array(
+        'title' => 'Quản lý Tin Tức',
+        'description' => 'Quản lý nội dung Tin Tức',
+        'url' => '/admin/news-management'
+      ),
+    );
+
+    return $list_menus;
+  }
+
+  public static function eco_get_menu_link_management() {
+    $list_menus = CommonFunc::eco_render_menu_management_admin();
+    foreach ($list_menus as $key => $value) {
+      $links[] = $value['url'];
+    }
+
+    return $links;
   }
 }

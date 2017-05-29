@@ -27,8 +27,10 @@ class HeaderBlock extends BlockBase {
    * {@inheritdoc}
    */
   public function build() {
-    $language = CommonHelper::func_get_current_lang();
 
+    $block_language_switcher =$this->generate_switcher_languages();
+
+    $language = CommonHelper::func_get_current_lang();
     $breadcrumb = $this->get_breadcrumb($language);
 
     $menu_tree = \Drupal::menuTree();
@@ -45,7 +47,8 @@ class HeaderBlock extends BlockBase {
         'log_site' => file_url_transform_relative(file_create_url(theme_get_setting('logo.url'))),
         'top_menu' => $menu,
         'is_front_page' => \Drupal::service('path.matcher')->isFrontPage(),
-        'breadcrumb' => $breadcrumb
+        'breadcrumb' => $breadcrumb,
+        'block_language_switcher' => $block_language_switcher
       ],
     ];
 
@@ -102,5 +105,29 @@ class HeaderBlock extends BlockBase {
     ];
 
     return $arr_menu;
+  }
+
+  private function generate_switcher_languages() {
+    $block = \Drupal\block\Entity\Block::load('languageswitcher');
+    $block_content = \Drupal::entityManager()
+      ->getViewBuilder('block')
+      ->view($block);
+    $block_language_switcher= drupal_render($block_content);
+    
+    //preg_match_all("/<ul class=\"links\">(.*)<\/ul>/", $block_language_switcher, $matches);
+    //pr($matches);
+    
+    /*libxml_use_internal_errors(true);
+    $dom = new \DOMDocument();
+    @$dom->loadHTML();
+    libxml_clear_errors();
+    $xpath = new \DOMXpath($dom);
+    $nodes = $xpath->query(".//li ");
+    //$nodes = $xml->getElementsByTagName('li');
+    foreach ($nodes as $node) {
+      pr($node);
+    }*/
+    
+    return $block_language_switcher;
   }
 }

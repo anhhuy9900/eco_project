@@ -14,6 +14,7 @@ use Drupal\node\Entity\Node;
 use Drupal\Core\Database\Database;
 use Drupal\Core\Render\Markup;
 use Drupal\oo_common\Helper\CommonHelper;
+use Drupal\my_base\Functions\CommonFunc;
 
 
 /**
@@ -25,6 +26,11 @@ function my_base_theme($existing, $type, $theme, $path) {
   $themes['home_page'] = [
     'variables' => ['params' => NULL],
     'template' => 'layout/home-page',
+  ];
+
+  $themes['list_news'] = [
+    'variables' => ['params' => NULL],
+    'template' => 'layout/list-news',
   ];
 
   $themes['project_all_page'] = [
@@ -48,6 +54,7 @@ function my_base_theme($existing, $type, $theme, $path) {
     'header_block',
     'footer_block',
     'topcommon_block',
+    'right_menu_block',
   ];
   if (!empty($blocks)) {
     foreach ($blocks as $item) {
@@ -103,6 +110,29 @@ function my_base_entity_delete(EntityInterface $entity) {
 
 }
 
+
+/**
+ * Implements my_base_form_alter().
+ */
+function my_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $addContentViews = get_add_content_link_views();
+  
+  if(in_array($current_path, CommonFunc::eco_get_menu_link_management()) && array_key_exists($form_id, $addContentViews)) {
+    $url = Url::fromUri('internal:/node/add/' . $addContentViews[$form_id], array('query' => \Drupal::destination()->getAsArray()));
+    $htmlAdd = '<ul class="action-links">
+         <li>
+             <a href="' . $url->toString() . '" class="button button-action button--primary button--small">
+                 ' . t('Add content') . '
+             </a>
+         </li>
+     </ul>';
+    $form['#prefix'] = $htmlAdd;
+  }
+    
+}
+
+
 /**
  * Implements hook_page_attachments_alter().
  */
@@ -137,23 +167,19 @@ function func_handle_entity_node(array &$build, $entity, $view_mode){
 
 }
 
-function func_get_another_node($node_type, $nid, $langcode){
+/**
+ * Get add content link view names.
+ */
+function get_add_content_link_views() {
 
-  $conn = Database::getConnection();
-  $data = $conn->select('node_field_data', 'pk')
-    ->fields('pk', array('nid', 'title'))
-    ->condition('nid', $nid, '!=')
-    ->condition('type', $node_type, '=')
-    ->condition('langcode', $langcode, '=')
-    ->condition('status', 1)
-    ->execute()
-    ->fetchAll();
-  if($data){
-    foreach ($data as $key => $value) {
-      $url = Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $value->nid], ['absolute' => TRUE]);
-      $value->url = $url->toString();
-    }
-  }
-
-  return $data;
+  return [
+    'views_form_home_management_page_1' => 'home',
+    'views_form_about_us_management_page_1' => 'about_us',
+    'views_form_recruiment_management_page_1' => 'recruiment',
+    'views_form_field_operation_management_page_1' => 'field_operation',
+    'views_form_projects_management_page_1' => 'projects',
+    'views_form_partners_management_page_1' => 'partners',
+    'views_form_talent_management_page_1' => 'talent',
+    'views_form_news_management_page_1' => 'news',
+  ];
 }

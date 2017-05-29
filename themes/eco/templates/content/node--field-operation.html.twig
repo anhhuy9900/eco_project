@@ -1,0 +1,40 @@
+<main id="main" class="tg-haslayout">
+  <div class="tg-main-section tg-haslayout tg-backgroundwhite">
+    <div class="container">
+      <div class="row">
+        <div id="tg-twocolumns" class="tg-blog-detail tg-haslayout">
+          <div class="tg-blog-image tg-haslayout">
+            <div class="col-sm-12">
+            <figure>
+              <img src="{{ node.field_image.entity.uri.value | image_style('article_thumb') }}" alt="image dexcription">
+            </figure>
+          </div>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+                <div class="tg-post-head">
+                  <div class="left-box">
+                    <div class="tg-heading-border">
+                      <h3><a href="#">{{ node.getTitle }}</a></h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="tg-post-content tg-haslayout">
+
+                  <div class="tg-description">
+                    {{ node.body.value|raw }}
+                  </div>
+                </div>
+              </div>
+            <!-- Right Menu -->
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-right">
+              {% include directory ~ '/templates/layout/right-menu.html.twig' %}
+            </div>
+            <!--- End Right Menu -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

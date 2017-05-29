@@ -1,6 +1,3 @@
-<!--************************************
-    Footer Start
-*************************************-->
 <footer id="footer" class="tg-haslayout">
   <div class="four-columns haslayout">
     <div class="container">
@@ -22,36 +19,57 @@
         <div class="col-md-3 col-sm-6 col-xs-6 width-footercol">
           <div class="col tg-recent-post">
             <div class="tg-heading-border">
-              <h3>Recent Posts</h3>
+              <h3>{{ 'THE OFFICE' | t}}</h3>
+            </div>
+            <div class="tg-description">
+              <p>{{ params.contact_address }}</p>
             </div>
             <ul>
-              <li> <a href="#">
-                <p>Corem ipsum dolor sit amet</p>
-                <p>04 February 2015</p>
-                </a> </li>
-              <li> <a href="#">
-                <p>Mirum est notare quam littera gothica</p>
-                <p>04 February 2015</p>
-                </a> </li>
-              <li> <a href="#">
-                <p>Duis autem vel eum iriure</p>
-                <p>04 February 2015</p>
-                </a> </li>
+              <li> 
+                <div class="row">
+                  <div class="col-md-3">{{ 'Tel' | t  }} : </div>
+                  <div class="col-md-9">{{ params.contact_phone }}</div>
+                </div>
+              </li>
+              <li> 
+                <div class="row">
+                  <div class="col-md-3">{{ 'Fax' | t  }} : </div>
+                  <div class="col-md-9">{{ params.contact_fax }}</div>
+                </div>
+              </li>
+              <li> 
+                <div class="row">
+                  <div class="col-md-3">{{ 'Email' | t  }} : </div>
+                  <div class="col-md-9">{{ params.contact_email }}</div>
+                </div>
+              </li>
             </ul>
           </div>
-        </div>s
-        <div class="col-md-3 col-sm-6 col-xs-6 width-footercol">
-          <div class="col tg-flicker">
+        </div>
+        <div class="col-md-4 col-sm-6 col-xs-6 width-footercol">
+          <div class="col tg-recent-post">
             <div class="tg-heading-border">
-              <h3>Flickr Stream</h3>
+              <h3>{{ 'WORKING HOURS' | t}}</h3>
             </div>
             <ul>
-              <li> <a href="/{{ directory }}/images/thumbs/thumb-04.jpg" data-rel="prettyPhoto[flickr]"><img src="/{{ directory }}/images/thumbs/thumb-04.jpg" alt="image description"></a> </li>
-              <li> <a href="/{{ directory }}/images/thumbs/thumb-05.jpg" data-rel="prettyPhoto[flickr]"><img src="/{{ directory }}/images/thumbs/thumb-05.jpg" alt="image description"></a> </li>
-              <li> <a href="/{{ directory }}/images/thumbs/thumb-06.jpg" data-rel="prettyPhoto[flickr]"><img src="/{{ directory }}/images/thumbs/thumb-06.jpg" alt="image description"></a> </li>
-              <li> <a href="/{{ directory }}/images/thumbs/thumb-07.jpg" data-rel="prettyPhoto[flickr]"><img src="/{{ directory }}/images/thumbs/thumb-07.jpg" alt="image description"></a> </li>
-              <li> <a href="/{{ directory }}/images/thumbs/thumb-08.jpg" data-rel="prettyPhoto[flickr]"><img src="/{{ directory }}/images/thumbs/thumb-08.jpg" alt="image description"></a> </li>
-              <li> <a href="/{{ directory }}/images/thumbs/thumb-09.jpg" data-rel="prettyPhoto[flickr]"><img src="/{{ directory }}/images/thumbs/thumb-09.jpg" alt="image description"></a> </li>
+              <li> 
+                <div class="row">
+                  <div class="col-md-4">{{ 'Call us' | t  }} : </div>
+                  <div class="col-md-8">{{ params.contact_phone }}</div>
+                </div>
+              </li>
+              <li> 
+                <div class="row">
+                  <div class="col-md-4">{{ 'Email us' | t  }} : </div>
+                  <div class="col-md-8">{{ params.contact_email }}</div>
+                </div>
+              </li>
+              <li> 
+                <div class="row">
+                  <div class="col-md-4">{{ 'Working time' | t  }} : </div>
+                  <div class="col-md-8">{{ params.working_time }}</div>
+                </div>
+              </li>
             </ul>
           </div>
         </div>
@@ -61,11 +79,8 @@
   <div class="bottom-bar haslayout">
     <div class="container">
       <div class="copyright">
-        <p>&copy; 2015 | All Rights Reserved</p>
+        <p> {{ params.slogan_footer }} </p>
       </div>
     </div>
   </div>
 </footer>
-<!--************************************
-    Footer End
-*************************************-->

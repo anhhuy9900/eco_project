@@ -12,6 +12,7 @@ use Drupal\node\Entity\Node;
 use Drupal\views\Views;
 use Drupal\oo_common\Helper\CommonHelper;
 use Drupal\oo_common\Helper\FileHelper;
+use Drupal\my_base\Functions\CommonFunc;
 
 function eco_preprocess(&$variables, $hook){
   if($hook == 'header_block') {
@@ -27,7 +28,7 @@ function eco_preprocess(&$variables, $hook){
  * Adds body classes if certain regions have content.
  */
 function eco_preprocess_html(&$variables) {
-
+   
 }
 
 /**
@@ -39,7 +40,7 @@ function eco_preprocess_node(&$variables) {
   if(isset($variables['node'])) {
     $node = $variables['node'];
 
-    $variables['another_nodes_data'] = func_get_another_node($node->getType(), $node->id(), $langcode);
+    $variables['right_menu_items'] = CommonFunc::func_get_another_node($node->getType(), $node->id(), $langcode);
   }
 }
 
@@ -51,7 +52,13 @@ function eco_preprocess_page(&$variables) {
  * Implements hook_preprocess_HOOK() for block.html.twig.
  */
 function eco_preprocess_block(&$variables) {
-
+  
+  // $items_switcher_language = [];
+  // foreach ($variables['content']['#links'] as $key => $value) {
+  //   $items_switcher_language[$key]['title'] = $value['title'];
+  //   $uri = new \Drupal\Core\Url;
+  //   $items_switcher_language[$key]['url'] =  $uri->getUri();
+  // }
 
 }
 

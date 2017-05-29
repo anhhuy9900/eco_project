@@ -1,0 +1,18 @@
+<aside id="tg-shop-sidebar" class="tg-shop-sidebar">
+  <div class="tg-widget widget-brands">
+    {% if right_menu_items is not empty %}
+    <div class="tg-widget-holder">
+      <h3>{{ 'Category' | t }}</h3>
+      <ul>
+        {% for data in right_menu_items %}
+        <li>
+          <a href="{{ data.url }}" title="{{ data.title }}">
+            <em>{{ data.title }}</em>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </div>
+</aside>

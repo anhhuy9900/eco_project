@@ -15,16 +15,15 @@ class ContentManagementController extends ControllerBase
    * {@inheritdoc}
    */
   public function index(){
-    $list_menus = array(
-      array(
-        'title' => 'Quản lý Giới Thiệu',
-        'description' => 'Quản lý nội dung phần Giới Thiệu',
-        'url' => 'admin/about-us-management'
-      )
-    );
+    global $base_url;
+    $language = CommonHelper::func_get_current_lang();
+    $curent_base_url = $base_url . '/' . $language ;
+
+    $list_menus = CommonFunc::eco_render_menu_management_admin();
     $element = array(
       '#theme' => 'content_management',
       '#params' => array(
+        'curent_base_url'     => $curent_base_url,
         'list_menus'     => $list_menus
       ),
     );

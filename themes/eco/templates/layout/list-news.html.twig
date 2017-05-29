@@ -1,0 +1,56 @@
+<main id="main" class="tg-haslayout">
+	<div class="tg-main-section tg-haslayout tg-backgroundwhite">
+		<div class="container">
+			<div class="row">
+				<div id="tg-content" class="tg-content">
+					<div class="tg-posts tg-haslayout">
+					{% if params.items is not empty %}	
+						{% for item in params.items %}	
+						<div class="col-md-6 col-sm-6 col-xs-12">
+						  <article class="tg-post">
+						  	<figure class="tg-post-img">
+								<a href="{{ item.url }}"><img src="{{ item.image.thumbnail }}" alt="member name"></a>
+								<figcaption class="fig-hover">
+									<a class="anchor-bottom" href="{{ item.url }}"><i class="fa fa-angle-right"></i></a>
+								</figcaption>
+							</figure>
+							<div class="tg-post-area">
+								<div class="tg-post-hover tg-border">
+								  <div class="tg-post-data tg-haslayout">
+									<div class="tg-heading-border">
+									  <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
+									</div>
+									<div class="tg-description">
+									  <p>Consectetuer ascing elit, sed diam nonummy ami nibh euismod tincidunt ut laoreet dolore.</p>
+									</div>
+								  </div>
+								</div>
+								<ul class="tg-postmeta">
+									<li><a href="#">June 27, 2016</a></li>
+								  </ul>
+							</div>
+						  </article>
+						</div>
+						{% endfor %}
+					{% endif %}
+					</div>
+
+					<div class="col-xs-12">
+						{{ params.pager }}
+						<!-- <nav class="tg-pagination tg-haslayout">
+							<ul>
+								<li class="tg-previous"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+								<li><a href="#">1</a></li>
+								<li class="active"><a href="#">2</a></li>
+								<li><a href="#">3</a></li>
+								<li><a href="#">4</a></li>
+								<li><a href="#">5</a></li>
+								<li class="tg-next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+							</ul>
+						</nav> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>

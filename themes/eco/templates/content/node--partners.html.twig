@@ -27,26 +27,11 @@
                   </div>
                 </div>
               </div>
+            <!-- Right Menu -->
             <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 pull-right">
-              <aside id="tg-shop-sidebar" class="tg-shop-sidebar">
-                <div class="tg-widget widget-brands">
-                  {% if another_nodes_data is not empty %}
-                  <div class="tg-widget-holder">
-                    <h3>{{ 'Home' | t }}</h3>
-                    <ul>
-                      {% for data in another_nodes_data %}
-                      <li>
-                        <a href="{{ data.url }}" title="{{ data.title }}">
-                          <em>{{ data.title }}</em>
-                        </a>
-                      </li>
-                      {% endfor %}
-                    </ul>
-                  </div>
-                  {% endif %}
-                </div>
-              </aside>
+              {% include directory ~ '/templates/layout/right-menu.html.twig' %}
             </div>
+            <!--- End Right Menu -->
           </div>
         </div>
       </div>

@@ -4,7 +4,7 @@
 	<ul class="admin-list">
 		{% for data in params.list_menus %}
 		<li>
-			<a href="{{ data.url }}">
+			<a href="{{ params.curent_base_url ~ data.url }}">
 				<span class="label">{{ data.title }}</span>
 				<div class="description">{{ data.description }}</div>
 			</a>
