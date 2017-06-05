@@ -38,11 +38,6 @@ function my_base_theme($existing, $type, $theme, $path) {
     'template' => 'layout/project-all-page',
   ];
 
-  $themes['contact_page'] = [
-    'variables' => ['params' => NULL],
-    'template' => 'layout/contact-page',
-  ];
-
   /* Admin Management */
   $themes['content_management'] = [
     'variables' => ['params' => NULL],
@@ -132,6 +127,13 @@ function my_base_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_s
     
 }
 
+function my_base_user_login($account) {
+  if($account->id() > 0) {
+    $url = "/admin";
+    $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
+    $response->send();
+  }
+}
 
 /**
  * Implements hook_page_attachments_alter().

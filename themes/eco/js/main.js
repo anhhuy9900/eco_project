@@ -378,21 +378,31 @@ $(document).ready(function (e) {
         });
     })();
     // ------- Select Dropdow ------- //
-});
-    /* -------------------------------------
-     STORE LOCATOR
-     -------------------------------------- */
 
-   $('#map-container').storeLocator({
-        'dataType': 'json',
-        'dataLocation': 'js/locations.json',
-        'defaultLoc': true,
-        'defaultLat': '44.9207462',
-        'defaultLng': '-93.3935366',
-        "infowindowTemplatePath": "storestructure.html",
-        "listTemplatePath": "storelist.html",
-        "markerImg": "images/po-mapmarker.png",
-        "markerDim": {height: 40, width: 32},
-        "mapSettings": {zoom: 8, mapTypeId: google.maps.MapTypeId.ROADMAP}
-    });
+    if($('.messages--error').length > 0) {
+        var data = $('.messages--error').html();
+        $('.data-error-msg').html(data);
+        $('.messages--error').remove();
+        $('.data-error-msg').addClass('messages--error');
+        $('.data-error-msg .visually-hidden').remove();
+    }
+    
+});
+
+/* -------------------------------------
+ STORE LOCATOR
+ -------------------------------------- */
+
+/*$('#map-container').storeLocator({
+    'dataType': 'json',
+    'dataLocation': 'js/locations.json',
+    'defaultLoc': true,
+    'defaultLat': '44.9207462',
+    'defaultLng': '-93.3935366',
+    "infowindowTemplatePath": "storestructure.html",
+    "listTemplatePath": "storelist.html",
+    "markerImg": "images/po-mapmarker.png",
+    "markerDim": {height: 40, width: 32},
+    "mapSettings": {zoom: 8, mapTypeId: google.maps.MapTypeId.ROADMAP}
+});*/
 

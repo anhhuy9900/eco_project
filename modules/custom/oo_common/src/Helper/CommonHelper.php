@@ -30,4 +30,36 @@ class CommonHelper {
 
     return $arr;
   }
+
+  /**
+   *
+   * Validate Email format
+   *
+   */
+  public static function func_is_valid_email($email) {
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) { // The email address is valid
+      return TRUE;
+    }
+    else { // The email address is not valid
+      return FALSE;
+    }
+  }
+
+  /**
+   *
+   * Validate Email format
+   *
+   */
+  public static function func_is_valid_phonenumber($phone_number) {
+    if (filter_var(
+      $phone_number,
+      FILTER_VALIDATE_EMAIL
+    )) { // The email address is valid
+      return TRUE;
+    }
+    else { // The email address is not valid
+      return FALSE;
+    }
+  }
+  
 }

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * my_base module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Render\Markup;
+use Drupal\oo_common\Helper\CommonHelper;
+use Drupal\my_base\Functions\CommonFunc;
+
+/**
+ * Implements hook_theme().
+ */
+function my_contact_theme($existing, $type, $theme, $path) {
+
+  $themes = [];
+
+  $themes['contact_page'] = [
+    'variables' => ['params' => NULL, 'form' => NULL],
+    'render element' => 'form',
+    'template' => 'layout/contact-page',
+  ];
+
+  return $themes;
+}
+/**
+ * Implements my_base_form_alter().
+ */
+function my_contact_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+	
+}

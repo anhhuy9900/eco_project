@@ -5,36 +5,26 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
-            <h2>get social with us</h2>
+            <h2>{{ 'get social with us' | t }}</h2>
             <div class="tg-description">
-              <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>{ 'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' | t }}</p>
             </div>
           </div>
         </div>
         <ul class="tg-socialicon big-icons tg-haslayout">
           <li>
-            <a href="#">
+            <a href="{{ params.eco_fb_social }}">
               <i class="fa fa-facebook-f"></i>
             </a>
           </li>
           <li>
-            <a href="#">
-              <i class="fa fa-dribbble"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
+            <a href="{{ params.eco_google_social }}">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{{ params.eco_twitter_social }}">
               <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#">
-              <i class="fa fa-instagram"></i>
             </a>
           </li>
         </ul>
@@ -47,44 +37,53 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
-            <h2>Send us a message</h2>
+            <h2>{{ 'Send us a message' | t }}</h2>
             <div class="tg-description">
-              <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>{ 'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' | t }}</p>
             </div>
           </div>
         </div>
+    
         <div class="col-xs-12">
           <div class="row">
-            <form class="contact-form">
+            <form{{ attributes }}>
               <fieldset>
+                <div class="col-sm-12">
+                  <div class="form-group data-error-msg">
+                    
+                  </div>
+                </div>
                 <div class="col-sm-4">
                   <div class="form-group">
                     <i class="fa fa-user"></i>
-                    <input type="text" class="form-control" placeholder="Full Name">
+                    {{ form.fullname }}
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="form-group">
                     <i class="fa fa-envelope"></i>
-                    <input type="email" class="form-control" placeholder="Email Address">
+                    {{ form.phone }}
                   </div>
                 </div>
                 <div class="col-sm-4">
                   <div class="form-group">
                     <i class="fa fa-globe"></i>
-                    <input type="text" class="form-control" placeholder="Your Website">
+                    {{ form.email }}
                   </div>
                 </div>
                 <div class="col-xs-12">
                   <div class="form-group">
                     <i class="fa fa-paper-plane"></i>
-                    <textarea class="form-control"></textarea>
+                    {{ form.message }}
                   </div>
                 </div>
                 <div class="col-xs-12">
-                  <button type="submit" class="tg-btn">Send</button>
+                  {{ form.actions.submit }}
                 </div>
               </fieldset>
+              {{ form.form_build_id }}
+              {{ form.form_token }}
+              {{ form.form_id }}
             </form>
           </div>
         </div>

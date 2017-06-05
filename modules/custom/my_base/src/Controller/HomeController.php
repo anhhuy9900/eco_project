@@ -34,17 +34,45 @@ class HomeController extends ControllerBase
 
     }
 
+    $articles_news_latest = self::get_2_article_news_lastest($language);
+
     $element = array(
       '#theme' => 'home_page',
       '#params' => array(
-        'home_banner_url'     => $banner_image['origin_url'],
-        'home_sliders'        => $home_sliders,
-        'project_categories'  => $project_categories,
-        'arr_projects'        => $arr_projects,
+        'home_banner_url'       => $banner_image['origin_url'],
+        'home_sliders'          => $home_sliders,
+        'project_categories'    => $project_categories,
+        'arr_projects'          => $arr_projects,
+        'articles_news_latest'  => $articles_news_latest,
       ),
     );
 
     return $element;
+  }
+
+  public static function get_2_article_news_lastest($langcode) {
+    $entity_manager = \Drupal::entityTypeManager();
+    $conn = Database::getConnection();
+    $query = $conn->select('node_field_data', 'pk');
+    $query->fields('pk', array('nid', 'title'));
+    $query->condition('type', 'news', '=');
+    $query->condition('langcode', $langcode, '=');
+    $query->condition('status', 1);
+    $query->orderBy('nid', 'DESC');
+    $query->range(0, 2);
+    $data = $query->execute()->fetchAll();
+    if($data){
+      foreach ($data as $key => $value) {
+        $entity = $entity_manager->getStorage('node')->load($value->nid);
+        $url = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $value->nid], ['absolute' => TRUE]);
+        $value->url = $url->toString();
+        $image = FileHelper::getImageInfoByFid( EntityHelper::getFieldValue($entity, 'field_image', array( 'type' => 'image')) , array('news_thumbnail'));
+        $value->image = $image;
+        $value->description = EntityHelper::getFieldValue($entity, 'field_description', array( 'type' => 'string'));
+      }
+    }
+
+    return $data;
   }
 
 }

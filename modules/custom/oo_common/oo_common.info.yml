@@ -1,7 +1,7 @@
 name: OO Common
 type: module
 description: 'OO Common module.'
-package: OgilvyOne
+package: Custom Module
 
 version: '8.2.2'
 core: '8.x'

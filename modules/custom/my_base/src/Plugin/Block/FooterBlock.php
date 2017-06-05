@@ -28,7 +28,10 @@ class FooterBlock extends BlockBase {
       	'contact_fax' => \Drupal::state()->get('eco_contact_fax'),
       	'contact_email' => \Drupal::state()->get('eco_contact_email'),
       	'working_time' => \Drupal::state()->get('eco_working_time'),
-      	'slogan_footer' => \Drupal::state()->get('eco_slogan_footer'),
+        'slogan_footer' => \Drupal::state()->get('eco_slogan_footer'),
+        'eco_fb_social' => \Drupal::state()->get('eco_fb_social'),
+        'eco_google_social' => \Drupal::state()->get('eco_google_social'),
+      	'eco_twitter_social' => \Drupal::state()->get('eco_twitter_social'),
       ],
     ];
 

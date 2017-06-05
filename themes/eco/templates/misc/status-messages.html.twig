@@ -21,7 +21,7 @@
  *   - class: HTML classes.
  */
 #}
-{{ attach_library('classy/messages') }}
+{# attach_library('classy/messages') #}
 {% block messages %}
 {% for type, messages in message_list %}
   {%
@@ -30,7 +30,7 @@
       'messages--' ~ type,
     ]
   %}
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label') }}>
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes.addClass(classes)|without('role', 'aria-label').addClass('messages-error-hidden') }}>
     {% if type == 'error' %}
       <div role="alert">
     {% endif %}

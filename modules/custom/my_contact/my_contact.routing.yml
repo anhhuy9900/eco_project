@@ -1,0 +1,8 @@
+my_contact.contact:
+  path: '/contact-us'
+  defaults:
+    _controller: '\Drupal\my_contact\Controller\ContactController::index'
+    _form: '\Drupal\my_contact\Form\ContactForm'
+    _title: 'Contact page'
+  requirements:
+    _permission: 'access content'

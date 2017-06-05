@@ -52,6 +52,7 @@ class ListNewsController extends ControllerBase
         $value->url = $url->toString();
         $image = FileHelper::getImageInfoByFid( EntityHelper::getFieldValue($entity, 'field_image', array( 'type' => 'image')) , array('news_thumbnail'));
         $value->image = $image;
+        $value->description = EntityHelper::getFieldValue($entity, 'field_description', array( 'type' => 'string'));
       }
     }
 

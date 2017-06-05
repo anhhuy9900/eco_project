@@ -12,14 +12,6 @@ my_base.news:
     _controller: '\Drupal\my_base\Controller\ListNewsController::index'
     _title: 'List news page'
   requirements:
-    _permission: 'access content'    
-
-my_base.contact:
-  path: '/contact-us'
-  defaults:
-    _controller: '\Drupal\my_base\Controller\ContactController::index'
-    _title: 'Contact page'
-  requirements:
     _permission: 'access content'
 
 site_config_forms_contribute:

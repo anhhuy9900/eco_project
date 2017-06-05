@@ -260,72 +260,48 @@
       </div>
     </div>
   </section>
+
+  {% if params.articles_news_latest is not empty %}            
   <section class="tg-main-section tg-haslayout">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
-            <h2>Our latest blog</h2>
-            <div class="tg-description">
+            <h2>{{ 'Our latest news' | t }}</h2>
+            <!--<div class="tg-description">
               <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
+            </div>-->
           </div>
         </div>
         <div class="tg-posts tg-haslayout">
+          {% for item in params.articles_news_latest %}
           <div class="col-md-6 col-sm-6 col-xs-12">
             <article class="tg-post">
               <figure class="tg-post-img">
-                <a href="#"><img src="/{{ directory }}/images/blog/img-01.jpg" alt="member name"></a>
+                <a href="{{ item.url }}"><img src="{{ item.image.thumbnail }}" alt="member name"></a>
                 <figcaption class="fig-hover">
-                  <a class="anchor-bottom" href="#"><i class="fa fa-angle-right"></i></a>
+                  <a class="anchor-bottom" href="{{ item.url }}"><i class="fa fa-angle-right"></i></a>
                 </figcaption>
               </figure>
                 <div class="tg-post-area">
                 <div class="tg-post-hover tg-border">
                   <div class="tg-post-data tg-haslayout">
                   <div class="tg-heading-border">
-                    <h3><a href="#">recycling systems</a></h3>
+                    <h3><a href="{{ item.url }}">{{ item.title }}</a></h3>
                   </div>
                   <div class="tg-description">
-                    <p>Consectetuer ascing elit, sed diam nonummy ami nibh euismod tincidunt ut laoreet dolore.</p>
+                    <p>{{ item.description }}</p>
                   </div>
                   </div>
                 </div>
-                <ul class="tg-postmeta">
-                    <li><a href="#">By: Admin</a></li>
-                    <li><a href="#">June 27, 2016</a></li>
-                    </ul>
               </div>
             </article>
           </div>
-          <div class="col-md-6 col-sm-6 col-xs-12">
-            <article class="tg-post">
-              <figure class="tg-post-img">
-                <a href="#"><img src="/{{ directory }}/images/blog/img-02.jpg" alt="member name"></a>
-                <figcaption class="fig-hover">
-                  <a class="anchor-bottom" href="#"><i class="fa fa-angle-right"></i></a>
-                </figcaption>
-              </figure>
-              <div class="tg-post-area">
-                <div class="tg-post-hover tg-border">
-                  <div class="tg-post-data tg-haslayout">
-                  <div class="tg-heading-border">
-                    <h3><a href="#">recycling systems</a></h3>
-                  </div>
-                  <div class="tg-description">
-                    <p>Consectetuer ascing elit, sed diam nonummy ami nibh euismod tincidunt ut laoreet dolore.</p>
-                  </div>
-                  </div>
-                </div>
-                <ul class="tg-postmeta">
-                    <li><a href="#">By: Admin</a></li>
-                    <li><a href="#">June 27, 2016</a></li>
-                    </ul>
-              </div>
-            </article>
-          </div>
+          {% endfor %}
         </div>
       </div>
     </div>
   </section>
+  {% endif %}
+
 </main>
