@@ -80,43 +80,48 @@ class CommonFunc
   public static function eco_render_menu_management_admin() {
     $list_menus = array(
       array(
+        'title' => 'Quản lý Menu',
+        'description' => 'Quản lý bài viết phần Menu',
+        'url' => '/admin/structure/menu/manage/main'
+      ),
+      array(
         'title' => 'Quản lý Mục Trang chủ',
-        'description' => 'Quản lý nội dung phần trang chủ',
+        'description' => 'Quản lý bài viết phần Trang chủ',
         'url' => '/admin/home-management'
       ),
       array(
         'title' => 'Quản lý Giới Thiệu',
-        'description' => 'Quản lý nội dung Giới Thiệu',
+        'description' => 'Quản lý bài viết Giới Thiệu',
         'url' => '/admin/about-us-management'
       ),
       array(
-        'title' => 'Quản lý Cơ Hội Nghề Nghiệp',
-        'description' => 'Quản lý nội dung Cơ Hội Nghề Nghiệp',
+        'title' => 'Quản lý Tuyển dụng',
+        'description' => 'Quản lý bài viết Tuyển dụng',
         'url' => '/admin/recruiment-management'
       ),
       array(
         'title' => 'Quản lý Lĩnh vực hoạt động',
-        'description' => 'Quản lý nội dung Lĩnh vực hoạt động',
+        'description' => 'Quản lý bài viết Lĩnh vực hoạt động',
         'url' => '/admin/field-operation-management'
       ),
       array(
         'title' => 'Quản lý Dự án',
-        'description' => 'Quản lý nội dung Dự án',
+        'description' => 'Quản lý bài viết Dự án',
         'url' => '/admin/projects-management'
       ),
       array(
         'title' => 'Quản lý Thành viên và đối tác',
-        'description' => 'Quản lý nội dung Thành viên và đối tác',
+        'description' => 'Quản lý bài viết Thành viên và đối tác',
         'url' => '/admin/partners-management'
       ),
       array(
         'title' => 'Quản lý Năng lực',
-        'description' => 'Quản lý nội dung Năng lực',
+        'description' => 'Quản lý bài viết Năng lực',
         'url' => '/admin/talent-management'
       ),
       array(
         'title' => 'Quản lý Tin Tức',
-        'description' => 'Quản lý nội dung Tin Tức',
+        'description' => 'Quản lý bài viết Tin Tức',
         'url' => '/admin/news-management'
       ),
     );

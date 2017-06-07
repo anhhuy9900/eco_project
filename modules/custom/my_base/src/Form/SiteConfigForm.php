@@ -101,7 +101,7 @@ class SiteConfigForm extends FormBase {
 
     $form['eco_google_social'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Lnk Google social'),
+      '#title' => $this->t('Link Google social'),
       '#default_value' => \Drupal::state()->get('eco_google_social'),
       '#size' => 50,
       '#maxlength' => 200,
