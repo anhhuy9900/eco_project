@@ -3,13 +3,6 @@
     <div class="container">
       <div class="row">
         <div id="tg-twocolumns" class="tg-blog-detail tg-haslayout">
-          <div class="tg-blog-image tg-haslayout">
-            <div class="col-sm-12">
-            <figure>
-              <img src="{{ node.field_image.entity.uri.value | image_style('article_thumb') }}" alt="image dexcription">
-            </figure>
-          </div>
-          </div>
           <div class="container">
             <div class="row">
               <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -21,7 +14,7 @@
                   </div>
                 </div>
                 <div class="tg-post-content tg-haslayout">
-                  
+
                   <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                       <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -32,7 +25,7 @@
                           <div class="item {{ key == 0 ? 'active' : '' }}">
                             <img src="{{ slider.getFieldCollectionItem().field_image.entity.uri.value | image_style('project_detail_slider_thumb') }}" alt="">
                           </div>
-                        {% endfor %}  
+                        {% endfor %}
                         </div>
 
                         <!-- Left and right controls -->
@@ -45,8 +38,8 @@
                           <span class="sr-only">Next</span>
                         </a>
                       </div>
-                    </div>                   
-                  </div> 
+                    </div>
+                  </div>
                   <br><br><br>
                   <div class="row">
                     <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 tg-description">
