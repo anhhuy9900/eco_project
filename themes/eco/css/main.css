@@ -1799,7 +1799,7 @@ i.tg-next:before{
 ============================================= */
 .tg-bgbuynow{
 	background:#f7f7f7;
-	padding:78px 0;
+	padding:30px 0;
 }
 .tg-buynowbox {
 	width: 100%;
@@ -1810,7 +1810,7 @@ i.tg-next:before{
 	margin: 11px 0;
 	float: left;
 	font-size: 24px;
-	line-height: 24px;
+	line-height: 35px;
 	font-weight: normal;
 	text-transform: uppercase;
 }
@@ -3353,5 +3353,7 @@ h5.loc-name {
 .messages-error-hidden {
 	display: none !important;
 }
+
+.tg-main-fix-pd { padding: 30px 0 !important;}
 
 

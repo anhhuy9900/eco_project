@@ -1,18 +1,18 @@
 {% if params.home_sliders is not empty %}
 <div id="tg-home-slider" class="tg-home-slider tg-haslayout" style="background:url({{ params.home_banner_url }}) no-repeat 50% 100%;">
-  {% for data in params.home_sliders %}
+  {% for item in params.home_sliders %}
   <div class="item">
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-lg-offset-1 col-xs-12">
           <div class="row">
             <div class="col-sm-5 col-xs-5 tg-verticalmiddle">
-              <img class="floating" src="{{ data.image.thumbnail }}" alt="image description">
+              <img class="floating" src="{{ item.image.thumbnail }}" alt="image description">
             </div>
             <div class="col-sm-7 col-xs-7 tg-verticalmiddle tg-sliderwidth">
               <div class="tg-banner-content">
-                <h1>{{ data.title }}</h1>
-                <span>{{ data.summary }}</span>
+                <h1>{{ item.title }}</h1>
+                <span>{{ item.summary }}</span>
               </div>
             </div>
           </div>
@@ -25,27 +25,59 @@
 {% endif %}
 
 <main id="main" class="tg-haslayout">
+  {% if params.why_choose_us %}
   <section class="tg-main-section tg-haslayout">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
-            <h2>why choose us</h2>
+            <h2> {{ params.why_choose_us.title }} </h2>
             <div class="tg-description">
-              <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>{{ params.why_choose_us.summary }}</p>
             </div>
           </div>
         </div>
+        {% if params.why_choose_us.choose_us_box is not empty %}
         <div class="tg-whychoiceus tg-haslayout">
+          {% for key,item in params.why_choose_us.choose_us_box %}
           <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
             <div class="tg-theme-hover tg-border">
+              {% if key%2 != 0 %}
+              <div class="tg-hover-box">
+                <div class="tg-hover-content">
+                  <div class="tg-displaytable">
+                    <div class="tg-displaytablecell">
+                      <div class="tg-heading-border">
+                        <h3>{{ item.title }}</h3>
+                      </div>
+                      <div class="tg-description">
+                        <p>{{ item.summary }}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
               <figure>
-                <img src="/{{ directory }}/images/img-01.jpg" alt="image description">
+                <img src="{{ item.image.thumbnail }}" alt="image description">
                 <figcaption class="fig-hover">
-                  <a href="#" class="anchor-top">
+                  <a href="{{ item.link }}" class="anchor-top">
                     <i class="fa fa-recycle"></i>
                   </a>
-                  <a href="#" class="anchor-bottom">
+                  <a href="{{ item.link }}" class="anchor-bottom">
+                    <i class="fa fa-angle-right"></i>
+                  </a>
+                </figcaption>
+              </figure>
+
+              {% else %}
+
+              <figure>
+                <img src="{{ item.image.thumbnail }}" alt="image description">
+                <figcaption class="fig-hover">
+                  <a href="{{ item.link }}" class="anchor-top">
+                    <i class="fa fa-recycle"></i>
+                  </a>
+                  <a href="{{ item.link }}" class="anchor-bottom">
                     <i class="fa fa-angle-right"></i>
                   </a>
                 </figcaption>
@@ -55,101 +87,52 @@
                   <div class="tg-displaytable">
                     <div class="tg-displaytablecell">
                       <div class="tg-heading-border">
-                        <h3>recycling systems</h3>
+                        <h3>{{ item.title }}</h3>
                       </div>
                       <div class="tg-description">
-                        <p>Lorem ipsum dolor sit ametuar adipisicing elit sed dot.</p>
+                        <p>{{ item.summary }}</p>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {% endif %}
             </div>
           </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-            <div class="tg-theme-hover tg-border">
-              <div class="tg-hover-box">
-                <div class="tg-hover-content">
-                  <div class="tg-displaytable">
-                    <div class="tg-displaytablecell">
-                      <div class="tg-heading-border">
-                        <h3>Eco Consultancy</h3>
-                      </div>
-                      <div class="tg-description">
-                        <p>Lorem ipsum dolor sit ametuar adipisicing elit sed dot.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <figure>
-                <img src="/{{ directory }}/images/img-02.jpg" alt="image description">
-                <figcaption class="fig-hover">
-                  <a href="#" class="anchor-top">
-                    <i class="fa fa-recycle"></i>
-                  </a>
-                  <a href="#" class="anchor-bottom">
-                    <i class="fa fa-angle-right"></i>
-                  </a>
-                </figcaption>
-              </figure>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6">
-            <div class="tg-theme-hover tg-border">
-              <figure>
-                <img src="/{{ directory }}/images/img-03.jpg" alt="image description">
-                <figcaption class="fig-hover">
-                  <a href="#" class="anchor-top">
-                    <i class="fa fa-recycle"></i>
-                  </a>
-                  <a href="#" class="anchor-bottom">
-                    <i class="fa fa-angle-right"></i>
-                  </a>
-                </figcaption>
-              </figure>
-              <div class="tg-hover-box">
-                <div class="tg-hover-content">
-                  <div class="tg-displaytable">
-                    <div class="tg-displaytablecell">
-                      <div class="tg-heading-border">
-                        <h3>renewable energy</h3>
-                      </div>
-                      <div class="tg-description">
-                        <p>Lorem ipsum dolor sit ametuar adipisicing elit sed dot.</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
         </div>
+        {% endif %}
       </div>
     </div>
   </section>
+  {% endif %}
+
+  {% if params.improve_your_life %}
   <section class="lifestyle-area tg-main-section tg-haslayout">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
-            <h2>improve your lifestyle</h2>
+            <h2>{{ params.improve_your_life.title }}</h2>
             <div class="tg-description">
-              <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>{{ params.improve_your_life.summary }}</p>
             </div>
           </div>
         </div>
-        <div class="tg-improvelifestyle tg-haslayout">
+        <div class="tg-improvelifestyle tg-haslayout" style="background: url({{ params.improve_your_life.image.thumbnail }}) no-repeat 0 0;">
+        {% if params.improve_your_life.images_your_life_box is not empty %}
+          {% for key,item in params.improve_your_life.images_your_life_box %}
           <div class="col-sm-4">
             <div class="tg-box">
               <div class="tg-improve-box">
                 <div class="tg-improve-holder">
-                  <figure> <img src="/{{ directory }}/images/img-05.jpg" alt="image description"> </figure>
+                  <figure> <img src="{{ item.image.thumbnail }}" alt="image description"> </figure>
                   <div class="tg-improve-content">
                     <div class="tg-displaytable">
                       <div class="tg-displaytablecell">
                         <div class="tg-heading-border tg-borderwhite"> <i class="fa fa-recycle"></i> </div>
-                        <h3>Recycling</h3>
+                        <h3>{{ item.title }}</h3>
                       </div>
                     </div>
                   </div>
@@ -157,44 +140,13 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="tg-box">
-              <div class="tg-improve-box">
-                <div class="tg-improve-holder">
-                  <figure> <img src="/{{ directory }}/images/img-05.jpg" alt="image description"> </figure>
-                  <div class="tg-improve-content">
-                    <div class="tg-displaytable">
-                      <div class="tg-displaytablecell">
-                        <div class="tg-heading-border tg-borderwhite"> <i class="fa fa-leaf"></i> </div>
-                        <h3>dust free life</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="tg-box">
-              <div class="tg-improve-box">
-                <div class="tg-improve-holder">
-                  <figure> <img src="/{{ directory }}/images/img-05.jpg" alt="image description"> </figure>
-                  <div class="tg-improve-content">
-                    <div class="tg-displaytable">
-                      <div class="tg-displaytablecell">
-                        <div class="tg-heading-border tg-borderwhite"> <i class="fa fa-leaf"></i> </div>
-                        <h3>dust free life</h3>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          {% endfor %}
+        {% endif %}
         </div>
       </div>
     </div>
   </section>
+  {% endif %}
 
   {% if params.project_categories is not empty %}
   <section class="tg-main-section tg-haslayout bg-dark">
@@ -203,10 +155,10 @@
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
             <div class="tg-heading">
-              <h2>Our Recent Work</h2>
+              <h2>{{ 'Our Recent Work' | t }}</h2>
             </div>
             <div class="tg-description">
-              <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p>{{ 'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' | t }}</p>
             </div>
           </div>
         </div>
@@ -256,7 +208,7 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="tg-buynowbox">
-            <h3>consectetur adipisicing elit <strong>"sed do eiusmod tempor"</strong> incididunt.</h3>
+            <h3>{{ params.home_slogan }}</h3>
         </div>
       </div>
     </div>

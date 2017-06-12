@@ -124,6 +124,11 @@ class CommonFunc
         'description' => 'Quản lý bài viết Tin Tức',
         'url' => '/admin/news-management'
       ),
+      array(
+        'title' => 'Quản lý Danh mục dự án',
+        'description' => 'Quản lý Danh mục dự án',
+        'url' => '/admin/structure/taxonomy/manage/project_categories/overview'
+      ),
     );
 
     return $list_menus;

@@ -118,12 +118,13 @@ class EntityHelper {
           $key = 'target_id';
           break;
         case 'collection':
-          $key = 'target_id';
+          $key = 'value';
           break;
         default:
           $key = 'value';
           break;
       }
+      
       if ($limit > 0) {
         $res = array();
         foreach ($vals as $value) {

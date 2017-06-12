@@ -109,10 +109,17 @@ class SiteConfigForm extends FormBase {
 
     $form['eco_twitter_social'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Lnk Twitter social'),
+      '#title' => $this->t('Link Twitter social'),
       '#default_value' => \Drupal::state()->get('eco_twitter_social'),
       '#size' => 50,
       '#maxlength' => 200,
+    );
+
+    $form['eco_footer_summary'] = array(
+      '#type' => 'textarea',
+      '#title' => $this->t('Footer Summary'),
+      '#default_value' => \Drupal::state()->get('eco_footer_summary'),
+      '#maxlength' => 300,
     );
 
     $form['actions']['#type'] = 'actions';
@@ -154,6 +161,7 @@ class SiteConfigForm extends FormBase {
     \Drupal::state()->set('eco_contact_email', $form_state->getValue('eco_contact_email'));
     \Drupal::state()->set('eco_working_time', $form_state->getValue('eco_working_time'));
     \Drupal::state()->set('eco_slogan_footer', $form_state->getValue('eco_slogan_footer'));
+    \Drupal::state()->set('eco_footer_summary', $form_state->getValue('eco_footer_summary'));
 
     #\Drupal::state()->set('phone_number', $form_state->getValue('phone_number'));
     drupal_set_message($this->t('Cập nhật dữ liệu thành công', array()));
