@@ -393,16 +393,16 @@ $(document).ready(function (e) {
  STORE LOCATOR
  -------------------------------------- */
 
-/*$('#map-container').storeLocator({
+$('#map-container').storeLocator({
     'dataType': 'json',
-    'dataLocation': 'js/locations.json',
+    'dataLocation': path_map + 'js/locations.json',
     'defaultLoc': true,
-    'defaultLat': '44.9207462',
-    'defaultLng': '-93.3935366',
-    "infowindowTemplatePath": "storestructure.html",
-    "listTemplatePath": "storelist.html",
-    "markerImg": "images/po-mapmarker.png",
+    'defaultLat': '10.782518',
+    'defaultLng': '106.672872',
+    "infowindowTemplatePath": path_map + "html/storestructure.html",
+    "listTemplatePath": path_map + "html/storelist.html",
+    "markerImg": path_map + "images/po-mapmarker.png",
     "markerDim": {height: 40, width: 32},
-    "mapSettings": {zoom: 8, mapTypeId: google.maps.MapTypeId.ROADMAP}
-});*/
+    "mapSettings": {zoom: 14, mapTypeId: google.maps.MapTypeId.ROADMAP}
+});
 

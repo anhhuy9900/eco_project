@@ -2,7 +2,7 @@
   <div class="four-columns haslayout">
     <div class="container">
       <div class=" row">
-        <div class="col-md-3 col-sm-6 col-xs-6 width-footercol">
+        <div class="col-md-4 col-sm-6 col-xs-6 width-footercol">
           <div class="col aboutus"> <strong class="logo"> <a href="index.html"><img src="/{{ directory }}/images/logo2.png" alt="image description"></a> </strong>
             <div class="tg-description">
               <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolorin.</p>
@@ -14,7 +14,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-6 width-footercol">
+        <div class="col-md-4 col-sm-6 col-xs-6 width-footercol">
           <div class="col tg-recent-post">
             <div class="tg-heading-border">
               <h3>{{ 'THE OFFICE' | t}}</h3>
@@ -25,20 +25,17 @@
             <ul>
               <li> 
                 <div class="row">
-                  <div class="col-md-3">{{ 'Tel' | t  }} : </div>
-                  <div class="col-md-9">{{ params.contact_phone }}</div>
+                  <div class="col-md-12">{{ 'Tel' | t  }} : {{ params.contact_phone }}</div>
                 </div>
               </li>
               <li> 
                 <div class="row">
-                  <div class="col-md-3">{{ 'Fax' | t  }} : </div>
-                  <div class="col-md-9">{{ params.contact_fax }}</div>
+                  <div class="col-md-12">{{ 'Fax' | t  }} : {{ params.contact_fax }}</div>
                 </div>
               </li>
               <li> 
                 <div class="row">
-                  <div class="col-md-3">{{ 'Email' | t  }} : </div>
-                  <div class="col-md-9">{{ params.contact_email }}</div>
+                  <div class="col-md-12">{{ 'Email' | t  }} : {{ params.contact_email }}</div>
                 </div>
               </li>
             </ul>
@@ -52,20 +49,17 @@
             <ul>
               <li> 
                 <div class="row">
-                  <div class="col-md-4">{{ 'Call us' | t  }} : </div>
-                  <div class="col-md-8">{{ params.contact_phone }}</div>
+                  <div class="col-md-12">{{ 'Call us' | t  }} : {{ params.contact_phone }}</div>
                 </div>
               </li>
               <li> 
                 <div class="row">
-                  <div class="col-md-4">{{ 'Email us' | t  }} : </div>
-                  <div class="col-md-8">{{ params.contact_email }}</div>
+                  <div class="col-md-12">{{ 'Email us' | t  }} : {{ params.contact_email }}</div>
                 </div>
               </li>
               <li> 
                 <div class="row">
-                  <div class="col-md-4">{{ 'Working time' | t  }} : </div>
-                  <div class="col-md-8">{{ params.working_time }}</div>
+                  <div class="col-md-12">{{ 'Working time' | t  }} : {{ params.working_time }}</div>
                 </div>
               </li>
             </ul>

@@ -2,7 +2,7 @@ my_base.projects:
   path: '/project-all'
   defaults:
     _controller: '\Drupal\my_base\Controller\ProjectsController::index'
-    _title: 'Project all page'
+    _title_callback: '\Drupal\my_base\Controller\ProjectsController::title'
   requirements:
     _permission: 'access content'
 
@@ -10,7 +10,7 @@ my_base.news:
   path: '/list-news'
   defaults:
     _controller: '\Drupal\my_base\Controller\ListNewsController::index'
-    _title: 'List news page'
+    _title_callback: '\Drupal\my_base\Controller\ListNewsController::title'
   requirements:
     _permission: 'access content'
 

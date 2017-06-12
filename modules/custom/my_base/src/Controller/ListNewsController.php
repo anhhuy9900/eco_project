@@ -59,4 +59,8 @@ class ListNewsController extends ControllerBase
     return $data;
   }
 
+  public function title() {
+    return $this->t('News page');
+  }
+
 }

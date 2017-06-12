@@ -33,6 +33,8 @@ class ProjectsController extends ControllerBase
     return $element;
   }
 
-  
+  public function title() {
+    return $this->t('Projects page');
+  }
 
 }

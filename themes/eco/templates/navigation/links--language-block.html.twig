@@ -1,0 +1,9 @@
+{% if links -%}
+  <ul{{ attributes }}>
+    {%- for item in links -%}
+      <li{{ item.attributes }}>
+        {{ item.link }}
+      </li>
+    {%- endfor -%}
+  </ul>
+{%- endif %}

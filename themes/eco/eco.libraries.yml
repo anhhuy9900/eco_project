@@ -27,7 +27,7 @@ global-styling:
     js/swiper.min.js: {}
     js/nicescroll.js: {}
     js/handlebars.min.js: {}
-    'http://maps.google.com/maps/api/js?sensor=false': {}
+    'https://maps.googleapis.com/maps/api/js?key=AIzaSyCfx2hvLEGGKYjvwRuSy4RZYIcZIPYdAks&v3': {}
     js/jquery.storelocator.min.js: {}
     js/gmap3.js: {}
     js/main.js: {}

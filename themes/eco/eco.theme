@@ -17,7 +17,8 @@ use Drupal\my_base\Functions\CommonFunc;
 function eco_preprocess(&$variables, $hook){
   if($hook == 'header_block') {
     //Get image for Common Banner
-    $variables['top_banner_common'] = FileHelper::getImagePathByFid(\Drupal::state()->get('top_banner_common'));
+    $banner = FileHelper::getImageInfoByFid( \Drupal::state()->get('top_banner_common') , array('full_size'));
+    $variables['top_banner_common'] = $banner['thumbnail'];
   }
 
 }
