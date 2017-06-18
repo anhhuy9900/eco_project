@@ -83,7 +83,7 @@ img {
 	height: auto;
 	max-width: 100%;
 }
-strong { color: #414141; }
+/*strong { color: #414141; }*/
 iframe {
 	border: none;
 	float: left;
@@ -298,8 +298,8 @@ a.tg-btn:hover{ color: #fff;}
 	text-align: center;
 }
 .tg-section-head h2{
-	margin: 0 0 30px;
-	padding: 0 0 20px;
+	margin: 0 0 20px;
+	/*padding: 0 0 20px;*/
 	position: relative;
 	display: inline-block;
 	vertical-align: middle;
@@ -1081,8 +1081,8 @@ body.home #main{ background: none;}
 	color: #fff;
 	margin: 0 30px;
 	display: block;
-	padding: 0;
-	line-height: 50px;
+	padding: 15px 0;
+	line-height: 20px;
 	position: relative;
 	z-index: 2;
 }
@@ -3355,5 +3355,14 @@ h5.loc-name {
 }
 
 .tg-main-fix-pd { padding: 30px 0 !important;}
+p.text-align-center{
+	text-align: center;
+}
+p.text-align-left{
+	text-align: left;
+}
+p.text-align-right{
+	text-align: right;
+}
 
 

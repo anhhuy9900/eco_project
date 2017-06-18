@@ -171,7 +171,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
                   <ul id="tg-filterbale-nav" class="option-set">
-                    <li class="current-menu-item"><a data-filter="*" href="#">All</a></li>
+                    <li class="current-menu-item"><a data-filter="*" href="#">{{ 'All' | t }}</a></li>
                     {% for category in params.project_categories %}
                     <li><a data-filter=".{{ 'category-' ~ category.tid }}" href="#">{{ category.name }}</a></li>
                     {% endfor %}
@@ -185,7 +185,7 @@
                 {% for project in params.arr_projects %}
                 <div class="masonry-grid {{ 'category-' ~ project.category_id }}">
                   <div class="tg-project tg-border">
-                    <figure> <img src="{{ project.image.thumbnail }}" alt="image description" class="{{ project.height }}"> </figure>
+                    <figure> <img src="{{ project.image.thumbnail }}" alt="image description" class="{# project.height #}"> </figure>
                     <a href="{{ project.url }}" title="{{ project.title }}">
                       <div class="tg-portfolio-hover">
                         <!--<a class="anchor-bottom" href=""><i class="fa fa-search"></i>-->
