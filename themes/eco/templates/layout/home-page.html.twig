@@ -125,19 +125,21 @@
           {% for key,item in params.improve_your_life.images_your_life_box %}
           <div class="col-sm-4">
             <div class="tg-box">
-              <div class="tg-improve-box">
-                <div class="tg-improve-holder">
-                  <figure> <img src="{{ item.image.thumbnail }}" alt="image description"> </figure>
-                  <div class="tg-improve-content">
-                    <div class="tg-displaytable">
-                      <div class="tg-displaytablecell">
-                        <div class="tg-heading-border tg-borderwhite"> <i class="fa fa-recycle"></i> </div>
-                        <h3>{{ item.title }}</h3>
+              <a href="{{ item.link }}">
+                <div class="tg-improve-box">
+                  <div class="tg-improve-holder">
+                    <figure> <img src="{{ item.image.thumbnail }}" alt="image description"> </figure>
+                    <div class="tg-improve-content">
+                      <div class="tg-displaytable">
+                        <div class="tg-displaytablecell">
+                          <div class="tg-heading-border tg-borderwhite"> <i class="fa fa-recycle"></i> </div>
+                          <h3>{{ item.title }}</h3>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </a>  
             </div>
           </div>
           {% endfor %}
@@ -155,10 +157,10 @@
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
             <div class="tg-heading">
-              <h2>{{ 'Our Recent Work' | t }}</h2>
+              <h2>{{ params.title_box_project }}</h2>
             </div>
             <div class="tg-description">
-              <p>{{ 'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' | t }}</p>
+              <p>{{ params.des_box_project }}</p>
             </div>
           </div>
         </div>
@@ -220,7 +222,7 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2 col-sm-12 col-xs-12">
           <div class="tg-section-head">
-            <h2>{{ 'Our latest news' | t }}</h2>
+            <h2>{{ params.title_box_news }}</h2>
             <!--<div class="tg-description">
               <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minimiam uis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>-->

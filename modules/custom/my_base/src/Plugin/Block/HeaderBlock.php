@@ -44,6 +44,7 @@ class HeaderBlock extends BlockBase {
     return [
       '#theme' => 'header_block',
       '#params' => [
+        'home_url' => \Drupal::request()->getSchemeAndHttpHost() . '/' . $language,
         'log_site' => file_url_transform_relative(file_create_url(theme_get_setting('logo.url'))),
         'top_menu' => $menu,
         'is_front_page' => \Drupal::service('path.matcher')->isFrontPage(),

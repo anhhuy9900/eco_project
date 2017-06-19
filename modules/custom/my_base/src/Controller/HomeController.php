@@ -33,17 +33,24 @@ class HomeController extends ControllerBase
     }
 
     $home_slogan = EntityHelper::getFieldValue($entity, 'field_home_slogan',  array('type' => 'string'));
+    $title_box_project = EntityHelper::getFieldValue($entity, 'field_title_box_project',  array('type' => 'string'));
+    $des_box_project = EntityHelper::getFieldValue($entity, 'field_description_box_project',  array('type' => 'string'));
+    $title_box_news = EntityHelper::getFieldValue($entity, 'field_title_box_news',  array('type' => 'string'));
+
     $element = array(
       '#theme' => 'home_page',
       '#params' => array(
-        'home_banner_url'       => $banner_image['origin_url'],
-        'home_sliders'          => $home_sliders,
-        'why_choose_us'         => self::get_why_choose_us_data($entity),
-        'improve_your_life'     => self::get_improve_your_life_data($entity),
-        'project_categories'    => $project_categories,
-        'arr_projects'          => $arr_projects,
-        'articles_news_latest'  => self::get_2_article_news_lastest($language),
-        'home_slogan'  => $home_slogan
+        'home_banner_url'             => $banner_image['origin_url'],
+        'home_sliders'                => $home_sliders,
+        'why_choose_us'               => self::get_why_choose_us_data($entity),
+        'improve_your_life'           => self::get_improve_your_life_data($entity),
+        'project_categories'          => $project_categories,
+        'arr_projects'                => $arr_projects,
+        'articles_news_latest'        => self::get_2_article_news_lastest($language),
+        'home_slogan'                 => $home_slogan,
+        'title_box_project'           => $title_box_project,
+        'des_box_project'             => $des_box_project,
+        'title_box_news'              => $title_box_news,
       ),
     );
 
@@ -112,6 +119,7 @@ class HomeController extends ControllerBase
       $images_your_life_box[] = array(
         'title' => EntityHelper::getFieldValue($collection_entity, 'field_title', array( 'type' => 'string')),
         'image' => FileHelper::getImageInfoByFid( EntityHelper::getFieldValue($collection_entity, 'field_image', array( 'type' => 'image')) , array('image_your_life_box_thumb')),
+        'link' => EntityHelper::getFieldValue($collection_entity, 'field_link', array( 'type' => 'string'))
       );
     }
     $improve_your_life->images_your_life_box = $images_your_life_box;
