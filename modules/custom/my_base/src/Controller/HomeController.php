@@ -98,6 +98,7 @@ class HomeController extends ControllerBase
       'title' => EntityHelper::getFieldValue($collection_entity, 'field_title', array( 'type' => 'string')),
       'summary' => EntityHelper::getFieldValue($collection_entity, 'field_summary', array( 'type' => 'string')),
       'image' => FileHelper::getImageInfoByFid( EntityHelper::getFieldValue($collection_entity, 'field_image', array( 'type' => 'image')) , array('choose_us_thumb')),
+      'link' => EntityHelper::getFieldValue($collection_entity, 'field_link', array( 'type' => 'string'))
       );
     }
     $why_choose_us->choose_us_box = $choose_us_box;

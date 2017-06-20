@@ -60,10 +60,10 @@
               <figure>
                 <img src="{{ item.image.thumbnail }}" alt="image description">
                 <figcaption class="fig-hover">
-                  <a href="{{ item.link }}" class="anchor-top">
+                  <a href="{{ item.link }}" title="{{ item.title }}" class="anchor-top">
                     <i class="fa fa-recycle"></i>
                   </a>
-                  <a href="{{ item.link }}" class="anchor-bottom">
+                  <a href="{{ item.link }}" title="{{ item.title }}" class="anchor-bottom">
                     <i class="fa fa-angle-right"></i>
                   </a>
                 </figcaption>
@@ -74,10 +74,10 @@
               <figure>
                 <img src="{{ item.image.thumbnail }}" alt="image description">
                 <figcaption class="fig-hover">
-                  <a href="{{ item.link }}" class="anchor-top">
+                  <a href="{{ item.link }}" title="{{ item.title }}" class="anchor-top">
                     <i class="fa fa-recycle"></i>
                   </a>
-                  <a href="{{ item.link }}" class="anchor-bottom">
+                  <a href="{{ item.link }}" title="{{ item.title }}" class="anchor-bottom">
                     <i class="fa fa-angle-right"></i>
                   </a>
                 </figcaption>
@@ -125,7 +125,7 @@
           {% for key,item in params.improve_your_life.images_your_life_box %}
           <div class="col-sm-4">
             <div class="tg-box">
-              <a href="{{ item.link }}">
+              <a href="{{ item.link }}" title="{{ item.title }}">
                 <div class="tg-improve-box">
                   <div class="tg-improve-holder">
                     <figure> <img src="{{ item.image.thumbnail }}" alt="image description"> </figure>
