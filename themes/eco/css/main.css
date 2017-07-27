@@ -3364,5 +3364,11 @@ p.text-align-left{
 p.text-align-right{
 	text-align: right;
 }
+p.header-hotline{
+	font-size: 18px;
+	height: 25px;
+	padding-top: 5px;
+	color: #82b440;
+}
 
 

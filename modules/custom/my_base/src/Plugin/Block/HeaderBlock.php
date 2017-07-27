@@ -49,7 +49,8 @@ class HeaderBlock extends BlockBase {
         'top_menu' => $menu,
         'is_front_page' => \Drupal::service('path.matcher')->isFrontPage(),
         'breadcrumb' => $breadcrumb,
-        'block_language_switcher' => $block_language_switcher
+        'block_language_switcher' => $block_language_switcher,
+        'eco_hotline' => \Drupal::state()->get('eco_hotline'),
       ],
     ];
 

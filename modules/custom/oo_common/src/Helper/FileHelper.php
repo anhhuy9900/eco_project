@@ -230,18 +230,21 @@ class FileHelper {
   ) {
     $fid = ConvertHelper::parseInt($fid);
     $file = File::load($fid);
-    $file->origin_url = file_create_url($file->getFileUri());
-    if (!empty($imageStyles)) {
-      if (!is_array($imageStyles)) {
-        $imageStyles = array($imageStyles);
-      }
-      foreach ($imageStyles as $styleName) {
+    if($file) {
+      $file->origin_url = file_create_url($file->getFileUri());
+      if (!empty($imageStyles)) {
+        if (!is_array($imageStyles)) {
+          $imageStyles = array($imageStyles);
+        }
+        foreach ($imageStyles as $styleName) {
 //        $file->{$styleName} = image_style_url($styleName, $file->uri);
-        $file->{$styleName} = ImageStyle::load($styleName)->buildUrl(
-          $file->getFileUri()
-        );
+          $file->{$styleName} = ImageStyle::load($styleName)->buildUrl(
+              $file->getFileUri()
+          );
+        }
       }
     }
+
 
     $data = array();
     if (in_array('thumbnail', $returnFields)) {

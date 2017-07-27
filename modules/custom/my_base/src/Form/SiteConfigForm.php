@@ -122,6 +122,14 @@ class SiteConfigForm extends FormBase {
       '#maxlength' => 300,
     );
 
+    $form['eco_hotline'] = array(
+        '#type' => 'textfield',
+        '#title' => $this->t('Hotline'),
+        '#default_value' => \Drupal::state()->get('eco_hotline'),
+        '#size' => 20,
+        '#maxlength' => 20,
+    );
+
     $form['actions']['#type'] = 'actions';
     $form['actions']['submit'] = array(
       '#type' => 'submit',
@@ -162,6 +170,7 @@ class SiteConfigForm extends FormBase {
     \Drupal::state()->set('eco_working_time', $form_state->getValue('eco_working_time'));
     \Drupal::state()->set('eco_slogan_footer', $form_state->getValue('eco_slogan_footer'));
     \Drupal::state()->set('eco_footer_summary', $form_state->getValue('eco_footer_summary'));
+    \Drupal::state()->set('eco_hotline', $form_state->getValue('eco_hotline'));
 
     #\Drupal::state()->set('phone_number', $form_state->getValue('phone_number'));
     drupal_set_message($this->t('Cập nhật dữ liệu thành công', array()));

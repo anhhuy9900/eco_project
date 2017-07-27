@@ -111,7 +111,9 @@ class HomeController extends ControllerBase
     $field_improve_your_life_box =  EntityHelper::getFieldCollectionById($improve_your_life_cid);
     $improve_your_life->title = EntityHelper::getFieldValue($field_improve_your_life_box, 'field_title', array( 'type' => 'string'));
     $improve_your_life->summary = EntityHelper::getFieldValue($field_improve_your_life_box, 'field_summary', array( 'type' => 'string'));
-    $improve_your_life->image = FileHelper::getImageInfoByFid( EntityHelper::getFieldValue($field_improve_your_life_box, 'field_image', array( 'type' => 'image')) , array('improve_your_life_image'));
+    $improve_your_life->background = FileHelper::getImageInfoByFid( EntityHelper::getFieldValue($field_improve_your_life_box, 'field_background_lifebox', array( 'type' => 'image')), array('background_your_life_box'));
+
+    $improve_your_life->image = FileHelper::getImageInfoByFid( EntityHelper::getFieldValue($field_improve_your_life_box, 'field_image', array( 'type' => 'image')), array('improve_your_life_image'));
 
     $images_your_life_box = [];
     $field_images_your_life_box = EntityHelper::getFieldValue($field_improve_your_life_box, 'field_images_your_life_box',  array('type' => 'collection'), '', 3);
